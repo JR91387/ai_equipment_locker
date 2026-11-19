@@ -1,6 +1,6 @@
 [project]
 name = "equipment-locker"
-version = "1.0.0"
+version = "1.0.1"
 description = "A visual dashboard of your AI tooling: Claude, Gemini, Antigravity and ChatGPT files, plugins and key folders."
 readme = "README.md"
 license = {text = "MIT"}

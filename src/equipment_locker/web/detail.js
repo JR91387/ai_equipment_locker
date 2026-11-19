@@ -77,7 +77,7 @@
     const target = { kind, id: kind === "tool" ? id : Number(id) };
     const title = (d.annotation && d.annotation.label) || d.name || d.display || (d.path || "").split(/[\\/]/).pop();
     const parts = [el("button", { class: "quiet close", type: "button", on: { click: close } }, "Close"),
-      kind === "tool" && !d.image_id ? Locker.thumb(null, d.gradient, d.display, d.gradient_light) : null,
+      kind === "tool" && !d.image_id ? Locker.thumb(d) : kind === "item" ? Locker.kindTile(d.kind, d.name) : null,
       el("h2", {}, title), facts(d, kind), ...editors(d, target, () => open(kind, id)), ...(history(d) || [])];
     panel.replaceChildren(...parts.filter(Boolean));
     panel.hidden = false;

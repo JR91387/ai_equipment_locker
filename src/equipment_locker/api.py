@@ -1,13 +1,28 @@
 # SPDX-License-Identifier: MIT
 """Read and write operations behind the local page. Each takes a connection and returns JSON-ready data."""
 import base64
+import re
 import zlib
+from functools import cache
+from pathlib import Path
 
 from . import annotations as ann
 from . import search
 
+TOOL_ICONS = Path(__file__).resolve().parent / "web" / "icons" / "tools"
 GRADIENTS = 10
 LIGHT_GRADIENTS = {2, 5, 9}  # pale blends: lettering on them is dark
+
+
+@cache
+def icon_for(code):
+    """(url, dark_tile) for a bundled tool icon, or (None, False). Very light brand colours sit on a dark tile."""
+    path = TOOL_ICONS / f"{code}.svg"
+    if not path.is_file():
+        return None, False
+    m = re.search(r'fill="#([0-9A-Fa-f]{6})"', path.read_text())
+    r, g, b = (int(m.group(1)[i:i + 2], 16) / 255 for i in (0, 2, 4)) if m else (0, 0, 0)
+    return f"icons/tools/{code}.svg", 0.2126 * r + 0.7152 * g + 0.0722 * b > 0.6
 
 
 def gradient_for(code):
@@ -39,6 +54,7 @@ def summary(conn):
         t["items"] = counts.get(t["tool"], {})
         t["gradient"] = gradient_for(t["tool"])
         t["gradient_light"] = t["gradient"] in LIGHT_GRADIENTS
+        t["icon"], t["icon_dark"] = icon_for(t["tool"])
     last = conn.execute("""SELECT r.id, r.started, r.finished, s.code AS status FROM scan_run r
                            JOIN ref_run_status s ON s.id = r.status_id ORDER BY r.id DESC LIMIT 1""").fetchone()
     tools.sort(key=lambda t: (-(t["is_favorite"] or 0), -t["present"], t["tool"]))
@@ -103,6 +119,7 @@ def detail(conn, kind, ident):
     if kind == "tool":
         out["gradient"] = gradient_for(ident)
         out["gradient_light"] = out["gradient"] in LIGHT_GRADIENTS
+        out["icon"], out["icon_dark"] = icon_for(out["tool"])
     if kind == "location":
         out["history"] = _rows(conn, """SELECT c.code AS change, lc.at, lc.size_bytes FROM location_change lc
                                         JOIN ref_change c ON c.id = lc.change_id WHERE lc.location_id = ?

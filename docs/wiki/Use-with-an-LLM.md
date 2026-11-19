@@ -1,7 +1,7 @@
 # Use with an LLM (MCP)
 
 Equipment Locker ships a small [MCP](https://modelcontextprotocol.io) server. Any MCP client (Claude Code, Claude
-Desktop, a local model runner) can ask it what AI gear you have. It answers from the catalogue only; it never opens
+Desktop, a local model runner) can ask it which AI tools you have. It answers from the catalogue only; it never opens
 your tool files.
 
 ## Start it

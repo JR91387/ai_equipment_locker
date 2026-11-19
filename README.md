@@ -1,7 +1,7 @@
 <p align="center"><img src="docs/assets/hero.webp" alt="Equipment Locker: supply shelves with crates labelled skills, agents, MCP, plugins and more" width="820"></p>
 
 <h1 align="center">Equipment Locker</h1>
-<p align="center"><b>Store it. Find it.</b> A display cabinet for your AI gear.</p>
+<p align="center"><b>Store it. Find it.</b> A display cabinet for your AI tools.</p>
 
 Equipment Locker takes stock of the AI tools on your computer (Claude Code, Claude Desktop, Codex, ChatGPT,
 Antigravity, Gemini CLI, Cursor, Copilot, local models and more) and shows what you have and where it lives:
@@ -32,7 +32,8 @@ Prefer the terminal? `python3 -m equipment_locker scan` fills the same catalogue
 - **Search** that ignores case and punctuation: `code review`, `Code-Review` and `code_review` all match.
 - **Your labels**: notes (with history), tags, favourites and pictures, kept in one SQLite file.
 - **Pinned folders** for anything the built-in list does not know about.
-- **A colour of its own** for every tool without a picture: ten palette gradients, the same one every time.
+- **Recognisable tools**: known tools show their own icon; the rest get one of ten palette gradients.
+- **Kinds at a glance**: a wrench for skills, a robot for agents, a plug for MCP servers, each on its own colour.
 
 ## Ask it from an LLM (MCP)
 Equipment Locker includes a small MCP server, so Claude, a local model or any MCP client can look things up in
@@ -75,5 +76,7 @@ Add `--read-only` to hide the three labelling tools. The server only serves the 
 <p align="center"><img src="docs/assets/palette.svg" alt="Palette: field olive, warm cream, khaki sand, muted sky, signal red, deep charcoal" width="600"></p>
 
 ## License
-MIT. See `LICENSE`. Equipment Locker was built with AI assistance (Claude). Bundled fonts (Barlow Condensed, Exo 2) are under the SIL Open Font License; see
+MIT. See `LICENSE`. Equipment Locker was built with AI assistance (Claude). Product names and logos are
+trademarks of their owners and are shown only to identify the tools; no endorsement is implied (see
+`src/equipment_locker/web/icons/tools/SOURCES.md`). Bundled fonts (Barlow Condensed, Exo 2) are under the SIL Open Font License; see
 `src/equipment_locker/web/fonts/`.

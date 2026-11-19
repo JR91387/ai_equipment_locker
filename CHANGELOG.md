@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.1 (2026-11-19)
+- The shelves now say **Your tools** (was "Your AI gear").
+- Known tools show their own icon in brand colours (Claude, Gemini, Cursor, GitHub Copilot, Windsurf, Cline,
+  OpenCode, Qwen, Ollama, LM Studio, Hugging Face, npm, uv, pipx); other tools keep their palette gradient.
+- Item cards and section headings show a kind icon (wrench for skills, robot for agents, plug for MCP servers,
+  puzzle for plugins, and more) on a colour picked from the item's name.
+
 ## 1.0.0 (2026-11-19)
 First public release.
 
