@@ -1,0 +1,4593 @@
+{
+ "version": 1,
+ "tool_names": {
+  "claude-code": "Claude Code",
+  "claude-desktop": "Claude Desktop",
+  "claude": "Claude (other)",
+  "codex": "Codex",
+  "chatgpt-desktop": "ChatGPT Desktop",
+  "antigravity": "Antigravity",
+  "gemini-cli": "Gemini CLI",
+  "cursor": "Cursor",
+  "copilot": "GitHub Copilot",
+  "copilot-cli": "Copilot CLI",
+  "windsurf": "Windsurf",
+  "vscode": "VS Code",
+  "cline": "Cline",
+  "roo-code": "Roo Code",
+  "continue": "Continue",
+  "aider": "Aider",
+  "opencode": "opencode",
+  "goose": "Goose",
+  "kiro": "Kiro",
+  "qwen-code": "Qwen Code",
+  "amp": "Amp",
+  "ollama": "Ollama",
+  "lmstudio": "LM Studio",
+  "huggingface": "Hugging Face",
+  "jan": "Jan",
+  "gpt4all": "GPT4All",
+  "npm": "npm / npx",
+  "uv": "uv",
+  "pipx": "pipx",
+  "openai": "OpenAI (other)",
+  "other": "Other"
+ },
+ "tokens": {
+  "home": {
+   "all": "user home folder (%USERPROFILE% on Windows)"
+  },
+  "appconfig": {
+   "win32": "{home}/AppData/Roaming",
+   "darwin": "{home}/Library/Application Support",
+   "linux": "$XDG_CONFIG_HOME or {home}/.config"
+  },
+  "appdata": {
+   "win32": "{home}/AppData/Local",
+   "darwin": "{home}/Library/Application Support",
+   "linux": "$XDG_DATA_HOME or {home}/.local/share"
+  },
+  "appcache": {
+   "win32": "{home}/AppData/Local",
+   "darwin": "{home}/Library/Caches",
+   "linux": "$XDG_CACHE_HOME or {home}/.cache"
+  },
+  "appstate": {
+   "linux": "$XDG_STATE_HOME or {home}/.local/state"
+  },
+  "applogs": {
+   "darwin": "{home}/Library/Logs"
+  },
+  "appsupport": {
+   "darwin": "{home}/Library/Application Support"
+  },
+  "roaming": {
+   "win32": "{home}/AppData/Roaming"
+  },
+  "local": {
+   "win32": "{home}/AppData/Local"
+  },
+  "programdata": {
+   "win32": "%PROGRAMDATA%"
+  },
+  "programfiles": {
+   "win32": "%ProgramFiles%"
+  },
+  "project": {
+   "all": "a project folder found by the project search"
+  }
+ },
+ "rules": [
+  "A token with no value for an OS skips that entry on that OS; 'os' narrows it further.",
+  "env: when set for the user running the scan, the variable replaces the entry's root folder.",
+  "Data folders (history, cache, logs, install, models) are sized, never opened. Auth: existence only.",
+  "Absent, unreadable and wrong type are recorded, never raised."
+ ],
+ "users": {
+  "linux": [
+   "/home/*",
+   "/root"
+  ],
+  "darwin": [
+   "/Users/*"
+  ],
+  "win32": [
+   "%SystemDrive%/Users/*"
+  ],
+  "skip": [
+   "Public",
+   "Default",
+   "Default User",
+   "All Users",
+   "Shared",
+   "Guest",
+   "lost+found"
+  ]
+ },
+ "project_search": {
+  "roots": [
+   "{home}"
+  ],
+  "markers": [
+   ".agents",
+   ".aider.chat.history.md",
+   ".aider.conf.yml",
+   ".aider.input.history",
+   ".aider.model.metadata.json",
+   ".aider.model.settings.yml",
+   ".amp",
+   ".claude",
+   ".cline",
+   ".clinerules",
+   ".codex",
+   ".continue",
+   ".cursor",
+   ".devin",
+   ".gemini",
+   ".geminiignore",
+   ".github/agents",
+   ".github/copilot-instructions.md",
+   ".github/copilot/settings.json",
+   ".github/copilot/settings.local.json",
+   ".github/hooks",
+   ".github/instructions",
+   ".github/prompts",
+   ".github/skills",
+   ".goosehints",
+   ".kiro",
+   ".mcp.json",
+   ".opencode",
+   ".qwen",
+   ".roo",
+   ".roomodes",
+   ".vscode/mcp.json",
+   ".windsurf",
+   ".worktreeinclude",
+   "AGENTS.md",
+   "AGENTS.override.md",
+   "CLAUDE.local.md",
+   "CLAUDE.md",
+   "GEMINI.md",
+   "opencode.json",
+   "opencode.jsonc"
+  ],
+  "vendored_dirs": [
+   "node_modules",
+   "vendor",
+   ".cargo",
+   "site-packages",
+   "dist-packages",
+   ".venv",
+   "venv",
+   "bower_components",
+   "Pods",
+   ".gradle",
+   ".m2",
+   "go/pkg",
+   ".npm",
+   ".pnpm-store",
+   ".yarn",
+   ".tox",
+   ".nox",
+   "third_party"
+  ]
+ },
+ "sweep": {
+  "roots": [
+   "{appconfig}",
+   "{appdata}",
+   "{appcache}",
+   "{appstate}",
+   "{home}"
+  ],
+  "depth": 1,
+  "names": [
+   "claude",
+   "anthropic",
+   "codex",
+   "openai",
+   "chatgpt",
+   "gemini",
+   "antigravity",
+   "cursor",
+   "copilot",
+   "windsurf",
+   "codeium",
+   "devin",
+   "ollama",
+   "lmstudio",
+   "huggingface",
+   "continue",
+   "aider",
+   "opencode",
+   "goose",
+   "kiro",
+   "qwen",
+   "amp",
+   "cline",
+   "roo",
+   "jan",
+   "gpt4all"
+  ]
+ },
+ "limits": {
+  "depth": 4,
+  "max_entries": 50000,
+  "size_max_files": 10000
+ },
+ "sources": {
+  "official": "vendor documentation",
+  "community": "community guides or package uninstall lists",
+  "observed": "seen on a real machine",
+  "unverified": "AI model or memory only, not yet checked"
+ },
+ "places": [
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude",
+   "kind": "dir",
+   "holds": "config root",
+   "source": "official",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "config",
+   "code": "claude-code:home_claude"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude.json",
+   "kind": "file",
+   "holds": "global config, personal MCP servers",
+   "source": "official",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "mcp",
+   "code": "claude-code:home_claude_json"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/settings.json",
+   "kind": "file",
+   "holds": "settings, permissions, hooks",
+   "source": "official",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "config",
+   "code": "claude-code:home_claude_settings_json"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/CLAUDE.md",
+   "kind": "file",
+   "holds": "personal instructions",
+   "source": "official",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "instructions",
+   "code": "claude-code:home_claude_claude_md"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/rules",
+   "kind": "dir",
+   "holds": "topic instructions",
+   "source": "official",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "instructions",
+   "code": "claude-code:home_claude_rules"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/skills",
+   "kind": "dir",
+   "holds": "skills",
+   "source": "official",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "skills",
+   "code": "claude-code:home_claude_skills"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/agents",
+   "kind": "dir",
+   "holds": "subagents",
+   "source": "official",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "agents",
+   "code": "claude-code:home_claude_agents"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/commands",
+   "kind": "dir",
+   "holds": "slash commands",
+   "source": "official",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "commands",
+   "code": "claude-code:home_claude_commands"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/workflows",
+   "kind": "dir",
+   "holds": "workflow scripts",
+   "source": "official",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "commands",
+   "code": "claude-code:home_claude_workflows"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/output-styles",
+   "kind": "dir",
+   "holds": "output styles",
+   "source": "official",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "config",
+   "code": "claude-code:home_claude_output_styles"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/keybindings.json",
+   "kind": "file",
+   "holds": "key bindings",
+   "source": "official",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "config",
+   "code": "claude-code:home_claude_keybindings_json"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/plugins",
+   "kind": "dir",
+   "holds": "plugins",
+   "source": "official",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "plugins",
+   "code": "claude-code:home_claude_plugins"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/plugins/installed_plugins.json",
+   "kind": "file",
+   "holds": "installed plugin list",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "plugins",
+   "code": "claude-code:home_claude_plugins_installed_plugins_json"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/plugins/marketplaces",
+   "kind": "dir",
+   "holds": "plugin marketplaces",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "plugins",
+   "code": "claude-code:home_claude_plugins_marketplaces"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/plugins/cache",
+   "kind": "dir",
+   "holds": "plugin cache",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "plugins",
+   "code": "claude-code:home_claude_plugins_cache"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/plugins/synced",
+   "kind": "dir",
+   "holds": "plugins synced from claude.ai",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "plugins",
+   "code": "claude-code:home_claude_plugins_synced"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/hooks",
+   "kind": "dir",
+   "holds": "hook scripts",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "hooks",
+   "code": "claude-code:home_claude_hooks"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/projects",
+   "kind": "dir",
+   "holds": "session history, auto memory",
+   "source": "official",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "history",
+   "code": "claude-code:home_claude_projects"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/history.jsonl",
+   "kind": "file",
+   "holds": "prompt history",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "history",
+   "code": "claude-code:home_claude_history_jsonl"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/sessions",
+   "kind": "dir",
+   "holds": "session data",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "history",
+   "code": "claude-code:home_claude_sessions"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/plans",
+   "kind": "dir",
+   "holds": "plans",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "state",
+   "code": "claude-code:home_claude_plans"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/file-history",
+   "kind": "dir",
+   "holds": "file snapshots",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "history",
+   "code": "claude-code:home_claude_file_history"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/shell-snapshots",
+   "kind": "dir",
+   "holds": "shell snapshots",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "state",
+   "code": "claude-code:home_claude_shell_snapshots"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/todos",
+   "kind": "dir",
+   "holds": "todo lists",
+   "source": "unverified",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "state",
+   "code": "claude-code:home_claude_todos"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/ide",
+   "kind": "dir",
+   "holds": "IDE connection state",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "state",
+   "code": "claude-code:home_claude_ide"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/cache",
+   "kind": "dir",
+   "holds": "cache",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "cache",
+   "code": "claude-code:home_claude_cache"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/backups",
+   "kind": "dir",
+   "holds": "config backups",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "config",
+   "code": "claude-code:home_claude_backups"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/downloads",
+   "kind": "dir",
+   "holds": "downloads",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "config",
+   "code": "claude-code:home_claude_downloads"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/state",
+   "kind": "dir",
+   "holds": "state",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "state",
+   "code": "claude-code:home_claude_state"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude/usage-data",
+   "kind": "dir",
+   "holds": "usage data",
+   "source": "observed",
+   "env": "CLAUDE_CONFIG_DIR",
+   "category": "state",
+   "code": "claude-code:home_claude_usage_data"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{appdata}/claude",
+   "kind": "dir",
+   "holds": "installed versions",
+   "source": "observed",
+   "category": "install",
+   "code": "claude-code:appdata_claude"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{appstate}/claude",
+   "kind": "dir",
+   "holds": "state",
+   "source": "observed",
+   "category": "state",
+   "code": "claude-code:appstate_claude"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{appcache}/claude",
+   "kind": "dir",
+   "holds": "cache",
+   "source": "observed",
+   "category": "cache",
+   "code": "claude-code:appcache_claude"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{appcache}/claude-cli-nodejs",
+   "kind": "dir",
+   "holds": "CLI cache (npm install)",
+   "source": "observed",
+   "category": "cache",
+   "code": "claude-code:appcache_claude_cli_nodejs"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.local/bin/claude",
+   "kind": "file",
+   "holds": "native install",
+   "source": "community",
+   "os": [
+    "linux",
+    "darwin"
+   ],
+   "category": "install",
+   "code": "claude-code:home_local_bin_claude@linux-darwin"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "system",
+   "path": "/Library/Application Support/ClaudeCode/managed-settings.json",
+   "kind": "file",
+   "holds": "organization settings",
+   "source": "official",
+   "os": [
+    "darwin"
+   ],
+   "category": "config",
+   "code": "claude-code:library_application_support_claudecode_managed_settings_json@darwin"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "system",
+   "path": "/etc/claude-code/managed-settings.json",
+   "kind": "file",
+   "holds": "organization settings",
+   "source": "official",
+   "os": [
+    "linux"
+   ],
+   "category": "config",
+   "code": "claude-code:etc_claude_code_managed_settings_json@linux"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "system",
+   "path": "{programfiles}/ClaudeCode/managed-settings.json",
+   "kind": "file",
+   "holds": "organization settings",
+   "source": "official",
+   "os": [
+    "win32"
+   ],
+   "category": "config",
+   "code": "claude-code:programfiles_claudecode_managed_settings_json@win32"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "system",
+   "path": "/Library/Application Support/ClaudeCode/CLAUDE.md",
+   "kind": "file",
+   "holds": "organization instructions",
+   "source": "official",
+   "os": [
+    "darwin"
+   ],
+   "category": "instructions",
+   "code": "claude-code:library_application_support_claudecode_claude_md@darwin"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "system",
+   "path": "/etc/claude-code/CLAUDE.md",
+   "kind": "file",
+   "holds": "organization instructions",
+   "source": "official",
+   "os": [
+    "linux"
+   ],
+   "category": "instructions",
+   "code": "claude-code:etc_claude_code_claude_md@linux"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "system",
+   "path": "{programfiles}/ClaudeCode/CLAUDE.md",
+   "kind": "file",
+   "holds": "organization instructions",
+   "source": "official",
+   "os": [
+    "win32"
+   ],
+   "category": "instructions",
+   "code": "claude-code:programfiles_claudecode_claude_md@win32"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "system",
+   "path": "/etc/claude-code/managed-mcp.json",
+   "kind": "file",
+   "holds": "organization MCP servers",
+   "source": "official",
+   "os": [
+    "linux"
+   ],
+   "category": "mcp",
+   "code": "claude-code:etc_claude_code_managed_mcp_json@linux"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "system",
+   "path": "/Library/Application Support/ClaudeCode/managed-mcp.json",
+   "kind": "file",
+   "holds": "organization MCP servers",
+   "source": "official",
+   "os": [
+    "darwin"
+   ],
+   "category": "mcp",
+   "code": "claude-code:library_application_support_claudecode_managed_mcp_json@darwin"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "system",
+   "path": "{programfiles}/ClaudeCode/managed-mcp.json",
+   "kind": "file",
+   "holds": "organization MCP servers",
+   "source": "official",
+   "os": [
+    "win32"
+   ],
+   "category": "mcp",
+   "code": "claude-code:programfiles_claudecode_managed_mcp_json@win32"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "project",
+   "path": "{project}/CLAUDE.md",
+   "kind": "file",
+   "holds": "project instructions",
+   "source": "official",
+   "category": "instructions",
+   "code": "claude-code:project_claude_md"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "project",
+   "path": "{project}/CLAUDE.local.md",
+   "kind": "file",
+   "holds": "personal project instructions",
+   "source": "official",
+   "category": "instructions",
+   "code": "claude-code:project_claude_local_md"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "project",
+   "path": "{project}/.mcp.json",
+   "kind": "file",
+   "holds": "project MCP servers",
+   "source": "official",
+   "category": "mcp",
+   "code": "claude-code:project_mcp_json"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "project",
+   "path": "{project}/.worktreeinclude",
+   "kind": "file",
+   "holds": "worktree copy list",
+   "source": "official",
+   "category": "config",
+   "code": "claude-code:project_worktreeinclude"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "project",
+   "path": "{project}/.claude",
+   "kind": "dir",
+   "holds": "project config",
+   "source": "official",
+   "category": "config",
+   "code": "claude-code:project_claude"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "project",
+   "path": "{project}/.claude/settings.json",
+   "kind": "file",
+   "holds": "project settings",
+   "source": "official",
+   "category": "config",
+   "code": "claude-code:project_claude_settings_json"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "project",
+   "path": "{project}/.claude/settings.local.json",
+   "kind": "file",
+   "holds": "personal project settings",
+   "source": "official",
+   "category": "config",
+   "code": "claude-code:project_claude_settings_local_json"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "project",
+   "path": "{project}/.claude/CLAUDE.md",
+   "kind": "file",
+   "holds": "project instructions",
+   "source": "official",
+   "category": "instructions",
+   "code": "claude-code:project_claude_claude_md"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "project",
+   "path": "{project}/.claude/rules",
+   "kind": "dir",
+   "holds": "topic instructions",
+   "source": "official",
+   "category": "instructions",
+   "code": "claude-code:project_claude_rules"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "project",
+   "path": "{project}/.claude/skills",
+   "kind": "dir",
+   "holds": "skills",
+   "source": "official",
+   "category": "skills",
+   "code": "claude-code:project_claude_skills"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "project",
+   "path": "{project}/.claude/agents",
+   "kind": "dir",
+   "holds": "subagents",
+   "source": "official",
+   "category": "agents",
+   "code": "claude-code:project_claude_agents"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "project",
+   "path": "{project}/.claude/commands",
+   "kind": "dir",
+   "holds": "slash commands",
+   "source": "official",
+   "category": "commands",
+   "code": "claude-code:project_claude_commands"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "project",
+   "path": "{project}/.claude/workflows",
+   "kind": "dir",
+   "holds": "workflow scripts",
+   "source": "official",
+   "category": "commands",
+   "code": "claude-code:project_claude_workflows"
+  },
+  {
+   "tool": "claude-desktop",
+   "scope": "user",
+   "path": "{appconfig}/Claude",
+   "kind": "dir",
+   "holds": "app data",
+   "source": "official",
+   "os": [
+    "darwin",
+    "win32"
+   ],
+   "category": "state",
+   "code": "claude-desktop:appconfig_claude@darwin-win32"
+  },
+  {
+   "tool": "claude-desktop",
+   "scope": "user",
+   "path": "{appconfig}/Claude/claude_desktop_config.json",
+   "kind": "file",
+   "holds": "MCP servers",
+   "source": "official",
+   "os": [
+    "darwin",
+    "win32"
+   ],
+   "category": "mcp",
+   "code": "claude-desktop:appconfig_claude_claude_desktop_config_json@darwin-win32"
+  },
+  {
+   "tool": "claude-desktop",
+   "scope": "user",
+   "path": "{appconfig}/Claude",
+   "kind": "dir",
+   "holds": "app data (Linux beta)",
+   "source": "community",
+   "os": [
+    "linux"
+   ],
+   "category": "state",
+   "code": "claude-desktop:appconfig_claude@linux"
+  },
+  {
+   "tool": "claude-desktop",
+   "scope": "user",
+   "path": "{appconfig}/Claude/claude_desktop_config.json",
+   "kind": "file",
+   "holds": "MCP servers (Linux beta)",
+   "source": "community",
+   "os": [
+    "linux"
+   ],
+   "category": "mcp",
+   "code": "claude-desktop:appconfig_claude_claude_desktop_config_json@linux"
+  },
+  {
+   "tool": "claude-desktop",
+   "scope": "user",
+   "path": "{applogs}/Claude",
+   "kind": "dir",
+   "holds": "logs",
+   "source": "community",
+   "category": "logs",
+   "code": "claude-desktop:applogs_claude"
+  },
+  {
+   "tool": "claude-desktop",
+   "scope": "user",
+   "path": "{roaming}/Claude/logs",
+   "kind": "dir",
+   "holds": "logs",
+   "source": "community",
+   "category": "logs",
+   "code": "claude-desktop:roaming_claude_logs"
+  },
+  {
+   "tool": "claude-desktop",
+   "scope": "user",
+   "path": "{local}/Packages/Claude_*",
+   "kind": "glob",
+   "holds": "Microsoft Store install data",
+   "source": "community",
+   "category": "install",
+   "code": "claude-desktop:local_packages_claude_star"
+  },
+  {
+   "tool": "claude-desktop",
+   "scope": "user",
+   "path": "{local}/Claude-Data",
+   "kind": "dir",
+   "holds": "app data",
+   "source": "observed",
+   "category": "state",
+   "code": "claude-desktop:local_claude_data"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{home}/.codex",
+   "kind": "dir",
+   "holds": "Codex home folder (settings, sessions, skills, logs)",
+   "source": "official",
+   "env": "CODEX_HOME",
+   "category": "skills",
+   "code": "codex:home_codex"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{home}/.codex/config.toml",
+   "kind": "file",
+   "holds": "settings, MCP servers",
+   "source": "official",
+   "env": "CODEX_HOME",
+   "category": "mcp",
+   "code": "codex:home_codex_config_toml"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{home}/.codex/*.config.toml",
+   "kind": "glob",
+   "holds": "profiles",
+   "source": "official",
+   "env": "CODEX_HOME",
+   "category": "config",
+   "code": "codex:home_codex_star_config_toml"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{home}/.codex/AGENTS.md",
+   "kind": "file",
+   "holds": "personal instructions",
+   "source": "official",
+   "env": "CODEX_HOME",
+   "category": "agents",
+   "code": "codex:home_codex_agents_md"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{home}/.codex/auth.json",
+   "kind": "file",
+   "holds": "login (sensitive: never read)",
+   "source": "community",
+   "env": "CODEX_HOME",
+   "category": "auth",
+   "code": "codex:home_codex_auth_json"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{home}/.codex/sessions",
+   "kind": "dir",
+   "holds": "session history",
+   "source": "official",
+   "env": "CODEX_HOME",
+   "category": "history",
+   "code": "codex:home_codex_sessions"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{home}/.codex/log",
+   "kind": "dir",
+   "holds": "logs",
+   "source": "unverified",
+   "env": "CODEX_HOME",
+   "category": "logs",
+   "code": "codex:home_codex_log"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{home}/.codex/skills",
+   "kind": "dir",
+   "holds": "skills",
+   "source": "official",
+   "env": "CODEX_HOME",
+   "category": "skills",
+   "code": "codex:home_codex_skills"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{home}/.codex/prompts",
+   "kind": "dir",
+   "holds": "custom prompts",
+   "source": "unverified",
+   "env": "CODEX_HOME",
+   "category": "commands",
+   "code": "codex:home_codex_prompts"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{home}/.codex/history.jsonl",
+   "kind": "file",
+   "holds": "prompt history",
+   "source": "unverified",
+   "env": "CODEX_HOME",
+   "category": "history",
+   "code": "codex:home_codex_history_jsonl"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{home}/.codex/AGENTS.override.md",
+   "kind": "file",
+   "holds": "personal instruction override",
+   "source": "official",
+   "env": "CODEX_HOME",
+   "category": "agents",
+   "code": "codex:home_codex_agents_override_md"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{home}/.codex/agents",
+   "kind": "dir",
+   "holds": "custom subagents",
+   "source": "official",
+   "env": "CODEX_HOME",
+   "category": "agents",
+   "code": "codex:home_codex_agents"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{home}/.codex/packages/standalone",
+   "kind": "dir",
+   "holds": "standalone install cache",
+   "source": "official",
+   "env": "CODEX_HOME",
+   "category": "cache",
+   "code": "codex:home_codex_packages_standalone"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{home}/.local/bin/codex",
+   "kind": "file",
+   "holds": "install",
+   "source": "official",
+   "env": "CODEX_INSTALL_DIR",
+   "os": [
+    "linux",
+    "darwin"
+   ],
+   "category": "install",
+   "code": "codex:home_local_bin_codex@linux-darwin"
+  },
+  {
+   "tool": "codex",
+   "scope": "user",
+   "path": "{local}/Programs/OpenAI/Codex",
+   "kind": "dir",
+   "holds": "install",
+   "source": "official",
+   "env": "CODEX_INSTALL_DIR",
+   "category": "install",
+   "code": "codex:local_programs_openai_codex"
+  },
+  {
+   "tool": "codex",
+   "scope": "system",
+   "path": "/etc/codex/config.toml",
+   "kind": "file",
+   "holds": "system settings",
+   "source": "official",
+   "os": [
+    "linux",
+    "darwin"
+   ],
+   "category": "config",
+   "code": "codex:etc_codex_config_toml@linux-darwin"
+  },
+  {
+   "tool": "codex",
+   "scope": "project",
+   "path": "{project}/AGENTS.md",
+   "kind": "file",
+   "holds": "project instructions",
+   "source": "official",
+   "category": "agents",
+   "code": "codex:project_agents_md"
+  },
+  {
+   "tool": "codex",
+   "scope": "project",
+   "path": "{project}/AGENTS.override.md",
+   "kind": "file",
+   "holds": "project instruction override",
+   "source": "official",
+   "category": "agents",
+   "code": "codex:project_agents_override_md"
+  },
+  {
+   "tool": "codex",
+   "scope": "project",
+   "path": "{project}/.codex/agents",
+   "kind": "dir",
+   "holds": "project subagents",
+   "source": "official",
+   "category": "agents",
+   "code": "codex:project_codex_agents"
+  },
+  {
+   "tool": "codex",
+   "scope": "project",
+   "path": "{project}/.codex",
+   "kind": "dir",
+   "holds": "project config, local environments",
+   "source": "official",
+   "category": "config",
+   "code": "codex:project_codex"
+  },
+  {
+   "tool": "codex",
+   "scope": "project",
+   "path": "{project}/.codex/config.toml",
+   "kind": "file",
+   "holds": "project settings",
+   "source": "official",
+   "category": "config",
+   "code": "codex:project_codex_config_toml"
+  },
+  {
+   "tool": "chatgpt-desktop",
+   "scope": "user",
+   "path": "{appsupport}/com.openai.chat",
+   "kind": "dir",
+   "holds": "app data",
+   "source": "unverified",
+   "category": "history",
+   "code": "chatgpt-desktop:appsupport_com_openai_chat"
+  },
+  {
+   "tool": "chatgpt-desktop",
+   "scope": "user",
+   "path": "{local}/Packages/OpenAI.ChatGPT*",
+   "kind": "glob",
+   "holds": "Microsoft Store install data",
+   "source": "unverified",
+   "category": "history",
+   "code": "chatgpt-desktop:local_packages_openai_chatgptstar"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{home}/.gemini/GEMINI.md",
+   "kind": "file",
+   "holds": "personal instructions",
+   "source": "official",
+   "category": "instructions",
+   "code": "antigravity:home_gemini_gemini_md"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{home}/.gemini/skills",
+   "kind": "dir",
+   "holds": "skills",
+   "source": "official",
+   "category": "skills",
+   "code": "antigravity:home_gemini_skills"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{home}/.gemini/antigravity-cli",
+   "kind": "dir",
+   "holds": "CLI data",
+   "source": "official",
+   "category": "state",
+   "code": "antigravity:home_gemini_antigravity_cli"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{home}/.gemini/antigravity-cli/settings.json",
+   "kind": "file",
+   "holds": "CLI settings",
+   "source": "official",
+   "category": "config",
+   "code": "antigravity:home_gemini_antigravity_cli_settings_json"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{home}/.gemini/antigravity-cli/keybindings.json",
+   "kind": "file",
+   "holds": "CLI key bindings",
+   "source": "official",
+   "category": "config",
+   "code": "antigravity:home_gemini_antigravity_cli_keybindings_json"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{home}/.gemini/antigravity-cli/skills",
+   "kind": "dir",
+   "holds": "CLI skills",
+   "source": "official",
+   "category": "skills",
+   "code": "antigravity:home_gemini_antigravity_cli_skills"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{home}/.gemini/config",
+   "kind": "dir",
+   "holds": "shared config for app, IDE, CLI",
+   "source": "community",
+   "category": "config",
+   "code": "antigravity:home_gemini_config"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{home}/.gemini/config/mcp_config.json",
+   "kind": "file",
+   "holds": "MCP servers",
+   "source": "official",
+   "category": "mcp",
+   "code": "antigravity:home_gemini_config_mcp_config_json"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{home}/.gemini/config/hooks.json",
+   "kind": "file",
+   "holds": "hooks",
+   "source": "official",
+   "category": "hooks",
+   "code": "antigravity:home_gemini_config_hooks_json"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{home}/.gemini/config/plugins",
+   "kind": "dir",
+   "holds": "plugins",
+   "source": "official",
+   "category": "plugins",
+   "code": "antigravity:home_gemini_config_plugins"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{home}/.gemini/antigravity",
+   "kind": "dir",
+   "holds": "app state, conversation history",
+   "source": "community",
+   "category": "history",
+   "code": "antigravity:home_gemini_antigravity"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{home}/.antigravity",
+   "kind": "dir",
+   "holds": "app data, global rules",
+   "source": "community",
+   "category": "instructions",
+   "code": "antigravity:home_antigravity"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{home}/.antigravity_tools",
+   "kind": "dir",
+   "holds": "agent tool configs, logs",
+   "source": "community",
+   "category": "logs",
+   "code": "antigravity:home_antigravity_tools"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{appconfig}/Antigravity",
+   "kind": "dir",
+   "holds": "app/IDE data",
+   "source": "community",
+   "category": "state",
+   "code": "antigravity:appconfig_antigravity"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{appconfig}/Antigravity/User/settings.json",
+   "kind": "file",
+   "holds": "IDE settings",
+   "source": "community",
+   "category": "config",
+   "code": "antigravity:appconfig_antigravity_user_settings_json"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{appcache}/com.google.antigravity",
+   "kind": "dir",
+   "holds": "cache",
+   "source": "community",
+   "os": [
+    "darwin"
+   ],
+   "category": "cache",
+   "code": "antigravity:appcache_com_google_antigravity@darwin"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{applogs}/Antigravity",
+   "kind": "dir",
+   "holds": "logs",
+   "source": "community",
+   "category": "logs",
+   "code": "antigravity:applogs_antigravity"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{local}/antigravity-updater",
+   "kind": "dir",
+   "holds": "updater",
+   "source": "observed",
+   "category": "install",
+   "code": "antigravity:local_antigravity_updater"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{local}/Programs/antigravity",
+   "kind": "dir",
+   "holds": "install",
+   "source": "community",
+   "category": "install",
+   "code": "antigravity:local_programs_antigravity"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{home}/.local/bin/agy",
+   "kind": "file",
+   "holds": "CLI install",
+   "source": "community",
+   "os": [
+    "linux",
+    "darwin"
+   ],
+   "category": "install",
+   "code": "antigravity:home_local_bin_agy@linux-darwin"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "project",
+   "path": "{project}/.agents",
+   "kind": "dir",
+   "holds": "workspace config",
+   "source": "official",
+   "category": "config",
+   "code": "antigravity:project_agents"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "project",
+   "path": "{project}/.agents/skills",
+   "kind": "dir",
+   "holds": "workspace skills",
+   "source": "official",
+   "category": "skills",
+   "code": "antigravity:project_agents_skills"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "project",
+   "path": "{project}/.agents/mcp_config.json",
+   "kind": "file",
+   "holds": "workspace MCP servers",
+   "source": "official",
+   "category": "mcp",
+   "code": "antigravity:project_agents_mcp_config_json"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "project",
+   "path": "{project}/.agents/hooks.json",
+   "kind": "file",
+   "holds": "workspace hooks",
+   "source": "official",
+   "category": "hooks",
+   "code": "antigravity:project_agents_hooks_json"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "project",
+   "path": "{project}/.agents/plugins",
+   "kind": "dir",
+   "holds": "workspace plugins",
+   "source": "official",
+   "category": "plugins",
+   "code": "antigravity:project_agents_plugins"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "project",
+   "path": "{project}/GEMINI.md",
+   "kind": "file",
+   "holds": "project instructions",
+   "source": "official",
+   "category": "instructions",
+   "code": "antigravity:project_gemini_md"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "project",
+   "path": "{project}/AGENTS.md",
+   "kind": "file",
+   "holds": "project instructions",
+   "source": "official",
+   "category": "agents",
+   "code": "antigravity:project_agents_md"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "user",
+   "path": "{home}/.gemini",
+   "kind": "dir",
+   "holds": "config root",
+   "source": "official",
+   "category": "config",
+   "code": "gemini-cli:home_gemini"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "user",
+   "path": "{home}/.gemini/settings.json",
+   "kind": "file",
+   "holds": "settings, MCP servers",
+   "source": "official",
+   "category": "mcp",
+   "code": "gemini-cli:home_gemini_settings_json"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "user",
+   "path": "{home}/.gemini/GEMINI.md",
+   "kind": "file",
+   "holds": "personal instructions",
+   "source": "official",
+   "category": "instructions",
+   "code": "gemini-cli:home_gemini_gemini_md"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "user",
+   "path": "{home}/.gemini/extensions",
+   "kind": "dir",
+   "holds": "extensions",
+   "source": "unverified",
+   "category": "plugins",
+   "code": "gemini-cli:home_gemini_extensions"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "user",
+   "path": "{home}/.gemini/commands",
+   "kind": "dir",
+   "holds": "custom commands",
+   "source": "official",
+   "category": "commands",
+   "code": "gemini-cli:home_gemini_commands"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "user",
+   "path": "{home}/.gemini/tmp",
+   "kind": "dir",
+   "holds": "session data",
+   "source": "unverified",
+   "category": "history",
+   "code": "gemini-cli:home_gemini_tmp"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "system",
+   "path": "/etc/gemini-cli/settings.json",
+   "kind": "file",
+   "holds": "system settings (override)",
+   "source": "official",
+   "env": "GEMINI_CLI_SYSTEM_SETTINGS_PATH",
+   "os": [
+    "linux"
+   ],
+   "category": "config",
+   "code": "gemini-cli:etc_gemini_cli_settings_json@linux"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "system",
+   "path": "/etc/gemini-cli/system-defaults.json",
+   "kind": "file",
+   "holds": "system defaults",
+   "source": "official",
+   "env": "GEMINI_CLI_SYSTEM_DEFAULTS_PATH",
+   "os": [
+    "linux"
+   ],
+   "category": "config",
+   "code": "gemini-cli:etc_gemini_cli_system_defaults_json@linux"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "system",
+   "path": "{programdata}/gemini-cli/settings.json",
+   "kind": "file",
+   "holds": "system settings (override)",
+   "source": "official",
+   "env": "GEMINI_CLI_SYSTEM_SETTINGS_PATH",
+   "os": [
+    "win32"
+   ],
+   "category": "config",
+   "code": "gemini-cli:programdata_gemini_cli_settings_json@win32"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "system",
+   "path": "{programdata}/gemini-cli/system-defaults.json",
+   "kind": "file",
+   "holds": "system defaults",
+   "source": "official",
+   "env": "GEMINI_CLI_SYSTEM_DEFAULTS_PATH",
+   "os": [
+    "win32"
+   ],
+   "category": "state",
+   "code": "gemini-cli:programdata_gemini_cli_system_defaults_json@win32"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "system",
+   "path": "/Library/Application Support/GeminiCli/settings.json",
+   "kind": "file",
+   "holds": "system settings (override)",
+   "source": "official",
+   "env": "GEMINI_CLI_SYSTEM_SETTINGS_PATH",
+   "os": [
+    "darwin"
+   ],
+   "category": "config",
+   "code": "gemini-cli:library_application_support_geminicli_settings_json@darwin"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "system",
+   "path": "/Library/Application Support/GeminiCli/system-defaults.json",
+   "kind": "file",
+   "holds": "system defaults",
+   "source": "official",
+   "env": "GEMINI_CLI_SYSTEM_DEFAULTS_PATH",
+   "os": [
+    "darwin"
+   ],
+   "category": "config",
+   "code": "gemini-cli:library_application_support_geminicli_system_defaults_json@darwin"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "project",
+   "path": "{project}/.gemini",
+   "kind": "dir",
+   "holds": "project config",
+   "source": "official",
+   "category": "config",
+   "code": "gemini-cli:project_gemini"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "project",
+   "path": "{project}/.gemini/settings.json",
+   "kind": "file",
+   "holds": "project settings",
+   "source": "official",
+   "category": "config",
+   "code": "gemini-cli:project_gemini_settings_json"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "project",
+   "path": "{project}/GEMINI.md",
+   "kind": "file",
+   "holds": "project instructions",
+   "source": "official",
+   "category": "instructions",
+   "code": "gemini-cli:project_gemini_md"
+  },
+  {
+   "tool": "gemini-cli",
+   "scope": "project",
+   "path": "{project}/.geminiignore",
+   "kind": "file",
+   "holds": "ignore list",
+   "source": "unverified",
+   "category": "config",
+   "code": "gemini-cli:project_geminiignore"
+  },
+  {
+   "tool": "claude-code",
+   "scope": "user",
+   "path": "{home}/.claude.json.*",
+   "kind": "glob",
+   "holds": "backups and temp copies of .claude.json",
+   "source": "observed",
+   "category": "config",
+   "code": "claude-code:home_claude_json_star"
+  },
+  {
+   "tool": "antigravity",
+   "scope": "user",
+   "path": "{appcache}/antigravity",
+   "kind": "dir",
+   "holds": "cache",
+   "source": "observed",
+   "os": [
+    "linux"
+   ],
+   "category": "cache",
+   "code": "antigravity:appcache_antigravity@linux"
+  },
+  {
+   "tool": "ollama",
+   "scope": "user",
+   "path": "{home}/.ollama",
+   "kind": "dir",
+   "holds": "per-user Ollama data (keys, models)",
+   "source": "observed",
+   "category": "state",
+   "code": "ollama:home_ollama"
+  },
+  {
+   "tool": "cursor",
+   "scope": "user",
+   "path": "{home}/.cursor/mcp.json",
+   "kind": "file",
+   "holds": "Global MCP server config (mcpServers)",
+   "source": "official",
+   "ref": "https://cursor.com/docs/mcp",
+   "category": "mcp",
+   "code": "cursor:home_cursor_mcp_json"
+  },
+  {
+   "tool": "cursor",
+   "scope": "project",
+   "path": "{project}/.cursor/mcp.json",
+   "kind": "file",
+   "holds": "Project MCP server config",
+   "source": "official",
+   "ref": "https://cursor.com/docs/mcp",
+   "category": "mcp",
+   "code": "cursor:project_cursor_mcp_json"
+  },
+  {
+   "tool": "cursor",
+   "scope": "project",
+   "path": "{project}/.cursor/rules",
+   "kind": "dir",
+   "holds": "Project rules (.mdc files with frontmatter; plain .md ignored); subfolders allowed",
+   "source": "official",
+   "ref": "https://cursor.com/docs/rules",
+   "category": "instructions",
+   "code": "cursor:project_cursor_rules"
+  },
+  {
+   "tool": "cursor",
+   "scope": "project",
+   "path": "{project}/AGENTS.md",
+   "kind": "file",
+   "holds": "Plain-markdown agent instructions at project root and nested subdirectories",
+   "source": "official",
+   "ref": "https://cursor.com/docs/rules",
+   "category": "agents",
+   "code": "cursor:project_agents_md"
+  },
+  {
+   "tool": "cursor",
+   "scope": "user",
+   "path": "{home}/.cursor/cli-config.json",
+   "kind": "file",
+   "holds": "Cursor Agent CLI global config (permissions, model, sandbox, etc.)",
+   "source": "official",
+   "ref": "https://cursor.com/docs/cli/reference/configuration",
+   "env": "CURSOR_CONFIG_DIR",
+   "os": [
+    "darwin"
+   ],
+   "category": "config",
+   "code": "cursor:home_cursor_cli_config_json@darwin"
+  },
+  {
+   "tool": "cursor",
+   "scope": "user",
+   "path": "{home}/.cursor/cli-config.json",
+   "kind": "file",
+   "holds": "Cursor Agent CLI global config",
+   "source": "official",
+   "ref": "https://cursor.com/docs/cli/reference/configuration",
+   "env": "CURSOR_CONFIG_DIR",
+   "os": [
+    "linux"
+   ],
+   "category": "config",
+   "code": "cursor:home_cursor_cli_config_json@linux"
+  },
+  {
+   "tool": "cursor",
+   "scope": "user",
+   "path": "{home}/.cursor/cli-config.json",
+   "kind": "file",
+   "holds": "Cursor Agent CLI global config",
+   "source": "official",
+   "ref": "https://cursor.com/docs/cli/reference/configuration",
+   "env": "CURSOR_CONFIG_DIR",
+   "os": [
+    "win32"
+   ],
+   "category": "config",
+   "code": "cursor:home_cursor_cli_config_json@win32"
+  },
+  {
+   "tool": "cursor",
+   "scope": "project",
+   "path": "{project}/.cursor/cli.json",
+   "kind": "file",
+   "holds": "Project-level CLI permissions (only permissions allowed at project level)",
+   "source": "official",
+   "ref": "https://cursor.com/docs/cli/reference/configuration",
+   "category": "config",
+   "code": "cursor:project_cursor_cli_json"
+  },
+  {
+   "tool": "cursor",
+   "scope": "user",
+   "path": "{home}/.cursor/hooks.json",
+   "kind": "file",
+   "holds": "User hooks config (scripts run from ~/.cursor/)",
+   "source": "official",
+   "ref": "https://cursor.com/docs/hooks",
+   "category": "hooks",
+   "code": "cursor:home_cursor_hooks_json"
+  },
+  {
+   "tool": "cursor",
+   "scope": "user",
+   "path": "{home}/.cursor/hooks",
+   "kind": "dir",
+   "holds": "User hook scripts",
+   "source": "official",
+   "ref": "https://cursor.com/docs/hooks",
+   "category": "hooks",
+   "code": "cursor:home_cursor_hooks"
+  },
+  {
+   "tool": "cursor",
+   "scope": "project",
+   "path": "{project}/.cursor/hooks.json",
+   "kind": "file",
+   "holds": "Project hooks config (run from project root; also used by cloud agents)",
+   "source": "official",
+   "ref": "https://cursor.com/docs/hooks",
+   "category": "hooks",
+   "code": "cursor:project_cursor_hooks_json"
+  },
+  {
+   "tool": "cursor",
+   "scope": "system",
+   "path": "/Library/Application Support/Cursor/hooks.json",
+   "kind": "file",
+   "holds": "Enterprise/MDM hooks config",
+   "source": "official",
+   "ref": "https://cursor.com/docs/hooks",
+   "os": [
+    "darwin"
+   ],
+   "category": "hooks",
+   "code": "cursor:library_application_support_cursor_hooks_json@darwin"
+  },
+  {
+   "tool": "cursor",
+   "scope": "system",
+   "path": "/etc/cursor/hooks.json",
+   "kind": "file",
+   "holds": "Enterprise/MDM hooks config (Linux/WSL)",
+   "source": "official",
+   "ref": "https://cursor.com/docs/hooks",
+   "os": [
+    "linux"
+   ],
+   "category": "hooks",
+   "code": "cursor:etc_cursor_hooks_json@linux"
+  },
+  {
+   "tool": "cursor",
+   "scope": "system",
+   "path": "{programdata}/Cursor/hooks.json",
+   "kind": "file",
+   "holds": "Enterprise/MDM hooks config (docs: C:\\ProgramData\\Cursor\\hooks.json)",
+   "source": "official",
+   "ref": "https://cursor.com/docs/hooks",
+   "os": [
+    "win32"
+   ],
+   "category": "hooks",
+   "code": "cursor:programdata_cursor_hooks_json@win32"
+  },
+  {
+   "tool": "cursor",
+   "scope": "user",
+   "path": "{home}/.cursor/managed/team_*/hooks",
+   "kind": "glob",
+   "holds": "Team hooks synced from dashboard (rewritten each sync)",
+   "source": "official",
+   "ref": "https://cursor.com/docs/hooks",
+   "category": "hooks",
+   "code": "cursor:home_cursor_managed_team_star_hooks"
+  },
+  {
+   "tool": "cursor",
+   "scope": "user",
+   "path": "{home}/.cursor/skills",
+   "kind": "dir",
+   "holds": "User skills (SKILL.md folders); can sync to cloud",
+   "source": "official",
+   "ref": "https://cursor.com/docs/skills",
+   "category": "skills",
+   "code": "cursor:home_cursor_skills"
+  },
+  {
+   "tool": "cursor",
+   "scope": "user",
+   "path": "{home}/.agents/skills",
+   "kind": "dir",
+   "holds": "User skills (cross-agent location, read by Cursor)",
+   "source": "official",
+   "ref": "https://cursor.com/docs/skills",
+   "category": "skills",
+   "code": "cursor:home_agents_skills"
+  },
+  {
+   "tool": "cursor",
+   "scope": "project",
+   "path": "{project}/.cursor/skills",
+   "kind": "dir",
+   "holds": "Project skills; nested .cursor/skills/ in subfolders also discovered",
+   "source": "official",
+   "ref": "https://cursor.com/docs/skills",
+   "category": "skills",
+   "code": "cursor:project_cursor_skills"
+  },
+  {
+   "tool": "cursor",
+   "scope": "project",
+   "path": "{project}/.agents/skills",
+   "kind": "dir",
+   "holds": "Project skills (cross-agent location)",
+   "source": "official",
+   "ref": "https://cursor.com/docs/skills",
+   "category": "skills",
+   "code": "cursor:project_agents_skills"
+  },
+  {
+   "tool": "cursor",
+   "scope": "user",
+   "path": "{home}/.claude/skills",
+   "kind": "dir",
+   "holds": "Compatibility skill dirs also loaded by Cursor (project equivalents .claude/skills/, .codex/skills/)",
+   "source": "official",
+   "ref": "https://cursor.com/help/customization/skills",
+   "category": "skills",
+   "code": "cursor:home_claude_skills"
+  },
+  {
+   "tool": "cursor",
+   "scope": "user",
+   "path": "{home}/.codex/skills",
+   "kind": "dir",
+   "holds": "Compatibility skill dirs also loaded by Cursor (project equivalents .claude/skills/, .codex/skills/)",
+   "source": "official",
+   "ref": "https://cursor.com/help/customization/skills",
+   "category": "skills",
+   "code": "cursor:home_codex_skills"
+  },
+  {
+   "tool": "cursor",
+   "scope": "user",
+   "path": "{home}/.cursor/agents",
+   "kind": "dir",
+   "holds": "User subagent definitions (.md); also reads ~/.claude/agents/ and ~/.codex/agents/",
+   "source": "official",
+   "ref": "https://cursor.com/docs/subagents",
+   "category": "agents",
+   "code": "cursor:home_cursor_agents"
+  },
+  {
+   "tool": "cursor",
+   "scope": "project",
+   "path": "{project}/.cursor/agents",
+   "kind": "dir",
+   "holds": "Project subagent definitions; also reads .claude/agents/ and .codex/agents/",
+   "source": "official",
+   "ref": "https://cursor.com/docs/subagents",
+   "category": "agents",
+   "code": "cursor:project_cursor_agents"
+  },
+  {
+   "tool": "cursor",
+   "scope": "user",
+   "path": "{home}/.cursor/subagents",
+   "kind": "dir",
+   "holds": "Output of background subagents",
+   "source": "official",
+   "ref": "https://cursor.com/docs/subagents",
+   "category": "agents",
+   "code": "cursor:home_cursor_subagents"
+  },
+  {
+   "tool": "cursor",
+   "scope": "user",
+   "path": "{home}/.cursor/plugins/local",
+   "kind": "dir",
+   "holds": "Locally developed/imported plugins (plugin.json or .cursor-plugin/plugin.json)",
+   "source": "official",
+   "ref": "https://cursor.com/docs/plugins",
+   "category": "plugins",
+   "code": "cursor:home_cursor_plugins_local"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot",
+   "kind": "dir",
+   "holds": "Copilot CLI config dir (all items below live here)",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "config",
+   "code": "copilot-cli:home_copilot"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/settings.json",
+   "kind": "file",
+   "holds": "Personal settings (JSONC); may also hold inline hooks",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "config",
+   "code": "copilot-cli:home_copilot_settings_json"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/config.json",
+   "kind": "file",
+   "holds": "Auto-managed app state (auth, installed plugins)",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "auth",
+   "code": "copilot-cli:home_copilot_config_json"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/mcp-config.json",
+   "kind": "file",
+   "holds": "User MCP servers; also read by VS Code Copilot harness ('Copilot Global')",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "mcp",
+   "code": "copilot-cli:home_copilot_mcp_config_json"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/copilot-instructions.md",
+   "kind": "file",
+   "holds": "Personal custom instructions for all sessions",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "history",
+   "code": "copilot-cli:home_copilot_copilot_instructions_md"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/instructions",
+   "kind": "dir",
+   "holds": "Additional personal *.instructions.md files",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "instructions",
+   "code": "copilot-cli:home_copilot_instructions"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/agents",
+   "kind": "dir",
+   "holds": "Personal custom agents",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "agents",
+   "code": "copilot-cli:home_copilot_agents"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/skills",
+   "kind": "dir",
+   "holds": "Personal skills (<name>/SKILL.md)",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "skills",
+   "code": "copilot-cli:home_copilot_skills"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/hooks",
+   "kind": "dir",
+   "holds": "User-level hook configs/scripts",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "hooks",
+   "code": "copilot-cli:home_copilot_hooks"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/extensions",
+   "kind": "dir",
+   "holds": "Personal CLI extensions",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "plugins",
+   "code": "copilot-cli:home_copilot_extensions"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/installed-plugins",
+   "kind": "dir",
+   "holds": "Installed plugin files (plugin-data/ holds their persistent data)",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "plugins",
+   "code": "copilot-cli:home_copilot_installed_plugins"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/session-state",
+   "kind": "dir",
+   "holds": "Session history and workspace data",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "history",
+   "code": "copilot-cli:home_copilot_session_state"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/session-store.db",
+   "kind": "file",
+   "holds": "SQLite cross-session data",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "history",
+   "code": "copilot-cli:home_copilot_session_store_db"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/command-history-state",
+   "kind": "dir",
+   "holds": "Command history",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "commands",
+   "code": "copilot-cli:home_copilot_command_history_state"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/logs",
+   "kind": "dir",
+   "holds": "Session log files",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "history",
+   "code": "copilot-cli:home_copilot_logs"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/permissions-config.json",
+   "kind": "file",
+   "holds": "Saved tool/directory approvals per project",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "config",
+   "code": "copilot-cli:home_copilot_permissions_config_json"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/providers.json",
+   "kind": "file",
+   "holds": "Bring-your-own-key provider/model registry",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_PROVIDERS_CONFIG",
+   "category": "config",
+   "code": "copilot-cli:home_copilot_providers_json"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/mcp-oauth-config",
+   "kind": "dir",
+   "holds": "MCP OAuth tokens and secret-placeholder fallback storage",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "auth",
+   "code": "copilot-cli:home_copilot_mcp_oauth_config"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/mcp-secrets",
+   "kind": "dir",
+   "holds": "MCP OAuth tokens and secret-placeholder fallback storage",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "auth",
+   "code": "copilot-cli:home_copilot_mcp_secrets"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/lsp-config.json",
+   "kind": "file",
+   "holds": "LSP server definitions; IDE integration state",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "config",
+   "code": "copilot-cli:home_copilot_lsp_config_json"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "user",
+   "path": "{home}/.copilot/ide",
+   "kind": "file",
+   "holds": "LSP server definitions; IDE integration state",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "env": "COPILOT_HOME",
+   "category": "state",
+   "code": "copilot-cli:home_copilot_ide"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "project",
+   "path": "{project}/.github/copilot/settings.json",
+   "kind": "file",
+   "holds": "Repository settings (repo-overridable keys) and local override",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "category": "config",
+   "code": "copilot-cli:project_github_copilot_settings_json"
+  },
+  {
+   "tool": "copilot-cli",
+   "scope": "project",
+   "path": "{project}/.github/copilot/settings.local.json",
+   "kind": "file",
+   "holds": "Repository settings (repo-overridable keys) and local override",
+   "source": "official",
+   "ref": "https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-config-dir-reference",
+   "category": "config",
+   "code": "copilot-cli:project_github_copilot_settings_local_json"
+  },
+  {
+   "tool": "copilot",
+   "scope": "project",
+   "path": "{project}/.github/copilot-instructions.md",
+   "kind": "file",
+   "holds": "Project instructions (Copilot harness); AGENTS.md also accepted",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agents/reference/custom-instructions-reference.md",
+   "category": "instructions",
+   "code": "copilot:project_github_copilot_instructions_md"
+  },
+  {
+   "tool": "copilot",
+   "scope": "project",
+   "path": "{project}/.github/instructions",
+   "kind": "dir",
+   "holds": "Targeted **/*.instructions.md files (searched recursively)",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agents/reference/custom-instructions-reference.md",
+   "category": "instructions",
+   "code": "copilot:project_github_instructions"
+  },
+  {
+   "tool": "copilot",
+   "scope": "project",
+   "path": "{project}/AGENTS.md",
+   "kind": "file",
+   "holds": "Cross-agent and Claude-format instruction files read depending on harness",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agents/reference/custom-instructions-reference.md",
+   "category": "agents",
+   "code": "copilot:project_agents_md"
+  },
+  {
+   "tool": "copilot",
+   "scope": "project",
+   "path": "{project}/CLAUDE.md",
+   "kind": "file",
+   "holds": "Cross-agent and Claude-format instruction files read depending on harness",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agents/reference/custom-instructions-reference.md",
+   "category": "instructions",
+   "code": "copilot:project_claude_md"
+  },
+  {
+   "tool": "copilot",
+   "scope": "project",
+   "path": "{project}/.claude/CLAUDE.md",
+   "kind": "file",
+   "holds": "Cross-agent and Claude-format instruction files read depending on harness",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agents/reference/custom-instructions-reference.md",
+   "category": "instructions",
+   "code": "copilot:project_claude_claude_md"
+  },
+  {
+   "tool": "copilot",
+   "scope": "project",
+   "path": "{project}/.claude/rules",
+   "kind": "file",
+   "holds": "Cross-agent and Claude-format instruction files read depending on harness",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agents/reference/custom-instructions-reference.md",
+   "category": "instructions",
+   "code": "copilot:project_claude_rules"
+  },
+  {
+   "tool": "copilot",
+   "scope": "project",
+   "path": "{project}/.mcp.json",
+   "kind": "file",
+   "holds": "Workspace-root MCP servers (portable mcpServers format) for Copilot harness",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agents/reference/mcp-configuration.md",
+   "category": "mcp",
+   "code": "copilot:project_mcp_json"
+  },
+  {
+   "tool": "copilot",
+   "scope": "project",
+   "path": "{project}/.vscode/mcp.json",
+   "kind": "file",
+   "holds": "Editor-managed workspace MCP config ('servers' format, deprecated Local harness)",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agents/reference/mcp-configuration.md",
+   "category": "mcp",
+   "code": "copilot:project_vscode_mcp_json"
+  },
+  {
+   "tool": "copilot",
+   "scope": "project",
+   "path": "{project}/.github/agents",
+   "kind": "dir",
+   "holds": "Workspace custom agents (.agent.md or .md); .claude/agents/ for Claude format; legacy .chatmode.md",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agents/reference/custom-agent-file-reference.md",
+   "category": "agents",
+   "code": "copilot:project_github_agents"
+  },
+  {
+   "tool": "copilot",
+   "scope": "user",
+   "path": "{home}/.copilot/agents",
+   "kind": "dir",
+   "holds": "User custom agents (Copilot harness); ~/.claude/agents/ for Claude harness",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agents/reference/custom-agent-file-reference.md",
+   "env": "COPILOT_HOME",
+   "category": "agents",
+   "code": "copilot:home_copilot_agents"
+  },
+  {
+   "tool": "copilot",
+   "scope": "project",
+   "path": "{project}/.github/prompts",
+   "kind": "dir",
+   "holds": "Workspace prompt files (*.prompt.md, Local harness only); user prompts live in the VS Code profile",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agent-customization/prompt-files.md",
+   "category": "commands",
+   "code": "copilot:project_github_prompts"
+  },
+  {
+   "tool": "copilot",
+   "scope": "project",
+   "path": "{project}/.github/hooks",
+   "kind": "dir",
+   "holds": "Repository hook configs (*.json) and scripts",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agent-customization/hooks.md",
+   "category": "hooks",
+   "code": "copilot:project_github_hooks"
+  },
+  {
+   "tool": "copilot",
+   "scope": "user",
+   "path": "{home}/.copilot/hooks",
+   "kind": "dir",
+   "holds": "User hook configs across repos",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agent-customization/hooks.md",
+   "env": "COPILOT_HOME",
+   "category": "hooks",
+   "code": "copilot:home_copilot_hooks"
+  },
+  {
+   "tool": "copilot",
+   "scope": "project",
+   "path": "{project}/.github/skills",
+   "kind": "dir",
+   "holds": "Project skills (Copilot harness); Local also reads .claude/skills/, .agents/skills/",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agent-customization/agent-skills.md",
+   "category": "skills",
+   "code": "copilot:project_github_skills"
+  },
+  {
+   "tool": "copilot",
+   "scope": "user",
+   "path": "{home}/.copilot/skills",
+   "kind": "dir",
+   "holds": "Personal skills; Local also reads ~/.claude/skills/, ~/.agents/skills/",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/agent-customization/agent-skills.md",
+   "category": "skills",
+   "code": "copilot:home_copilot_skills"
+  },
+  {
+   "tool": "vscode",
+   "scope": "user",
+   "path": "{roaming}/Code/User/settings.json",
+   "kind": "file",
+   "holds": "User settings (extension settings incl. AI extensions)",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/configure/settings",
+   "os": [
+    "win32"
+   ],
+   "category": "config",
+   "code": "vscode:roaming_code_user_settings_json@win32"
+  },
+  {
+   "tool": "vscode",
+   "scope": "user",
+   "path": "{home}/Library/Application Support/Code/User/settings.json",
+   "kind": "file",
+   "holds": "User settings",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/configure/settings",
+   "os": [
+    "darwin"
+   ],
+   "category": "config",
+   "code": "vscode:home_library_application_support_code_user_settings_json@darwin"
+  },
+  {
+   "tool": "vscode",
+   "scope": "user",
+   "path": "{appconfig}/Code/User/settings.json",
+   "kind": "file",
+   "holds": "User settings",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/configure/settings",
+   "os": [
+    "linux"
+   ],
+   "category": "config",
+   "code": "vscode:appconfig_code_user_settings_json@linux"
+  },
+  {
+   "tool": "vscode",
+   "scope": "project",
+   "path": "{project}/.vscode/settings.json",
+   "kind": "file",
+   "holds": "Workspace settings",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/configure/settings",
+   "category": "config",
+   "code": "vscode:project_vscode_settings_json"
+  },
+  {
+   "tool": "vscode",
+   "scope": "user",
+   "path": "{home}/.vscode/extensions",
+   "kind": "dir",
+   "holds": "Installed extensions (Copilot, Cline, Roo Code, Continue, ...)",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/configure/extensions/extension-marketplace.md",
+   "os": [
+    "win32"
+   ],
+   "category": "plugins",
+   "code": "vscode:home_vscode_extensions@win32"
+  },
+  {
+   "tool": "vscode",
+   "scope": "user",
+   "path": "{home}/.vscode/extensions",
+   "kind": "dir",
+   "holds": "Installed extensions",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/configure/extensions/extension-marketplace.md",
+   "os": [
+    "darwin"
+   ],
+   "category": "plugins",
+   "code": "vscode:home_vscode_extensions@darwin"
+  },
+  {
+   "tool": "vscode",
+   "scope": "user",
+   "path": "{home}/.vscode/extensions",
+   "kind": "dir",
+   "holds": "Installed extensions",
+   "source": "official",
+   "ref": "https://code.visualstudio.com/docs/configure/extensions/extension-marketplace.md",
+   "os": [
+    "linux"
+   ],
+   "category": "plugins",
+   "code": "vscode:home_vscode_extensions@linux"
+  },
+  {
+   "tool": "cline",
+   "scope": "user",
+   "path": "{home}/.cline",
+   "kind": "dir",
+   "holds": "Global Cline config shared by IDE, CLI, SDK: rules/, workflows/, hooks/, skills/, agents/, plugins/, cron/",
+   "source": "official",
+   "ref": "https://docs.cline.bot/getting-started/config",
+   "env": "CLINE_DIR",
+   "category": "hooks",
+   "code": "cline:home_cline"
+  },
+  {
+   "tool": "cline",
+   "scope": "user",
+   "path": "{home}/.cline/data/settings",
+   "kind": "dir",
+   "holds": "providers.json (API keys), global-settings.json, cline_mcp_settings.json",
+   "source": "official",
+   "ref": "https://docs.cline.bot/getting-started/config",
+   "env": "CLINE_DATA_DIR",
+   "category": "auth",
+   "code": "cline:home_cline_data_settings"
+  },
+  {
+   "tool": "cline",
+   "scope": "user",
+   "path": "{home}/.cline/data/sessions",
+   "kind": "dir",
+   "holds": "Per-session message folders; SQLite databases (sessions.db, cron.db)",
+   "source": "official",
+   "ref": "https://docs.cline.bot/getting-started/config",
+   "env": "CLINE_DATA_DIR",
+   "category": "history",
+   "code": "cline:home_cline_data_sessions"
+  },
+  {
+   "tool": "cline",
+   "scope": "user",
+   "path": "{home}/.cline/data/db",
+   "kind": "dir",
+   "holds": "Per-session message folders; SQLite databases (sessions.db, cron.db)",
+   "source": "official",
+   "ref": "https://docs.cline.bot/getting-started/config",
+   "env": "CLINE_DATA_DIR",
+   "category": "history",
+   "code": "cline:home_cline_data_db"
+  },
+  {
+   "tool": "cline",
+   "scope": "user",
+   "path": "{home}/.cline/data/logs/cline.log",
+   "kind": "file",
+   "holds": "CLI and hub log",
+   "source": "official",
+   "ref": "https://docs.cline.bot/getting-started/config",
+   "env": "CLINE_LOG_PATH",
+   "category": "logs",
+   "code": "cline:home_cline_data_logs_cline_log"
+  },
+  {
+   "tool": "cline",
+   "scope": "user",
+   "path": "{home}/Documents/Cline",
+   "kind": "dir",
+   "holds": "Additional global rules/hooks/plugins/workflows; default global rules dir (Windows: Documents\\Cline\\Rules, incl. OneDrive Documents)",
+   "source": "official",
+   "ref": "https://docs.cline.bot/customization/cline-rules",
+   "category": "hooks",
+   "code": "cline:home_documents_cline"
+  },
+  {
+   "tool": "cline",
+   "scope": "user",
+   "path": "{home}/.agents/AGENTS.md",
+   "kind": "file",
+   "holds": "Cross-tool global instructions and skills read by Cline",
+   "source": "official",
+   "ref": "https://docs.cline.bot/getting-started/config",
+   "category": "skills",
+   "code": "cline:home_agents_agents_md"
+  },
+  {
+   "tool": "cline",
+   "scope": "user",
+   "path": "{home}/.agents/skills",
+   "kind": "file",
+   "holds": "Cross-tool global instructions and skills read by Cline",
+   "source": "official",
+   "ref": "https://docs.cline.bot/getting-started/config",
+   "category": "skills",
+   "code": "cline:home_agents_skills"
+  },
+  {
+   "tool": "cline",
+   "scope": "project",
+   "path": "{project}/.cline",
+   "kind": "dir",
+   "holds": "Project Cline config",
+   "source": "official",
+   "ref": "https://docs.cline.bot/getting-started/config",
+   "category": "config",
+   "code": "cline:project_cline"
+  },
+  {
+   "tool": "cline",
+   "scope": "project",
+   "path": "{project}/.clinerules",
+   "kind": "dir",
+   "holds": "Legacy/also-supported workspace rules (+ workflows/, skills/, hooks/); also reads .cursorrules, .windsurfrules, AGENTS.md",
+   "source": "official",
+   "ref": "https://docs.cline.bot/customization/cline-rules",
+   "category": "hooks",
+   "code": "cline:project_clinerules"
+  },
+  {
+   "tool": "cline",
+   "scope": "user",
+   "path": "{roaming}/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json",
+   "kind": "file",
+   "holds": "VS Code extension MCP settings (extension globalStorage)",
+   "source": "community",
+   "ref": "https://alphaonedev.github.io/ai-memory-mcp/integrations/cline.html",
+   "os": [
+    "win32"
+   ],
+   "category": "mcp",
+   "code": "cline:roaming_code_user_globalstorage_saoudrizwan_claude_dev_settings_cline_mcp_settings_json@win32"
+  },
+  {
+   "tool": "cline",
+   "scope": "user",
+   "path": "{home}/Library/Application Support/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json",
+   "kind": "file",
+   "holds": "VS Code extension MCP settings",
+   "source": "community",
+   "ref": "https://alphaonedev.github.io/ai-memory-mcp/integrations/cline.html",
+   "os": [
+    "darwin"
+   ],
+   "category": "mcp",
+   "code": "cline:home_library_application_support_code_user_globalstorage_saoudrizwan_claude_dev_settings_cline_mcp_settings_json@darwin"
+  },
+  {
+   "tool": "cline",
+   "scope": "user",
+   "path": "{appconfig}/Code/User/globalStorage/saoudrizwan.claude-dev/settings/cline_mcp_settings.json",
+   "kind": "file",
+   "holds": "VS Code extension MCP settings",
+   "source": "community",
+   "ref": "https://alphaonedev.github.io/ai-memory-mcp/integrations/cline.html",
+   "os": [
+    "linux"
+   ],
+   "category": "mcp",
+   "code": "cline:appconfig_code_user_globalstorage_saoudrizwan_claude_dev_settings_cline_mcp_settings_json@linux"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "project",
+   "path": "{project}/.roo/mcp.json",
+   "kind": "file",
+   "holds": "Project MCP servers (overrides global)",
+   "source": "official",
+   "ref": "https://github.com/RooCodeInc/Roo-Code-Docs/blob/main/docs/features/mcp/using-mcp-in-roo.mdx",
+   "category": "mcp",
+   "code": "roo-code:project_roo_mcp_json"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "user",
+   "path": "{home}/Library/Application Support/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json",
+   "kind": "file",
+   "holds": "Global MCP servers (official docs name the file but not the folder)",
+   "source": "community",
+   "ref": "https://mcp.gawk.dev/docs/client-roo.html",
+   "os": [
+    "darwin"
+   ],
+   "category": "mcp",
+   "code": "roo-code:home_library_application_support_code_user_globalstorage_rooveterinaryinc_roo_cline_settings_mcp_settings_json@darwin"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "user",
+   "path": "{appconfig}/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json",
+   "kind": "file",
+   "holds": "Global MCP servers",
+   "source": "community",
+   "ref": "https://mcp.gawk.dev/docs/client-roo.html",
+   "os": [
+    "linux"
+   ],
+   "category": "mcp",
+   "code": "roo-code:appconfig_code_user_globalstorage_rooveterinaryinc_roo_cline_settings_mcp_settings_json@linux"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "user",
+   "path": "{roaming}/Code/User/globalStorage/rooveterinaryinc.roo-cline/settings/mcp_settings.json",
+   "kind": "file",
+   "holds": "Global MCP servers",
+   "source": "community",
+   "ref": "https://mcp.gawk.dev/docs/client-roo.html",
+   "os": [
+    "win32"
+   ],
+   "category": "mcp",
+   "code": "roo-code:roaming_code_user_globalstorage_rooveterinaryinc_roo_cline_settings_mcp_settings_json@win32"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "project",
+   "path": "{project}/.roomodes",
+   "kind": "file",
+   "holds": "Project custom modes (YAML or JSON)",
+   "source": "official",
+   "ref": "https://github.com/RooCodeInc/Roo-Code-Docs/blob/main/docs/features/custom-modes.mdx",
+   "category": "config",
+   "code": "roo-code:project_roomodes"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "user",
+   "path": "{home}/.roo/rules",
+   "kind": "dir",
+   "holds": "Global rules (all / per mode)",
+   "source": "official",
+   "ref": "https://github.com/RooCodeInc/Roo-Code-Docs/blob/main/docs/features/custom-instructions.md",
+   "os": [
+    "darwin"
+   ],
+   "category": "instructions",
+   "code": "roo-code:home_roo_rules@darwin"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "user",
+   "path": "{home}/.roo/rules-*",
+   "kind": "glob",
+   "holds": "Global rules (all / per mode)",
+   "source": "official",
+   "ref": "https://github.com/RooCodeInc/Roo-Code-Docs/blob/main/docs/features/custom-instructions.md",
+   "os": [
+    "darwin"
+   ],
+   "category": "instructions",
+   "code": "roo-code:home_roo_rules_star@darwin"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "user",
+   "path": "{home}/.roo/rules",
+   "kind": "dir",
+   "holds": "Global rules (all / per mode)",
+   "source": "official",
+   "ref": "https://github.com/RooCodeInc/Roo-Code-Docs/blob/main/docs/features/custom-instructions.md",
+   "os": [
+    "linux"
+   ],
+   "category": "instructions",
+   "code": "roo-code:home_roo_rules@linux"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "user",
+   "path": "{home}/.roo/rules-*",
+   "kind": "glob",
+   "holds": "Global rules (all / per mode)",
+   "source": "official",
+   "ref": "https://github.com/RooCodeInc/Roo-Code-Docs/blob/main/docs/features/custom-instructions.md",
+   "os": [
+    "linux"
+   ],
+   "category": "instructions",
+   "code": "roo-code:home_roo_rules_star@linux"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "user",
+   "path": "{home}/.roo/rules",
+   "kind": "dir",
+   "holds": "Global rules (all / per mode)",
+   "source": "official",
+   "ref": "https://github.com/RooCodeInc/Roo-Code-Docs/blob/main/docs/features/custom-instructions.md",
+   "os": [
+    "win32"
+   ],
+   "category": "instructions",
+   "code": "roo-code:home_roo_rules@win32"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "user",
+   "path": "{home}/.roo/rules-*",
+   "kind": "glob",
+   "holds": "Global rules (all / per mode)",
+   "source": "official",
+   "ref": "https://github.com/RooCodeInc/Roo-Code-Docs/blob/main/docs/features/custom-instructions.md",
+   "os": [
+    "win32"
+   ],
+   "category": "instructions",
+   "code": "roo-code:home_roo_rules_star@win32"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "project",
+   "path": "{project}/.roo/rules",
+   "kind": "dir",
+   "holds": "Workspace rules (dir preferred, single-file fallback; legacy .clinerules-{slug})",
+   "source": "official",
+   "ref": "https://github.com/RooCodeInc/Roo-Code-Docs/blob/main/docs/features/custom-instructions.md",
+   "env": "AGENTS",
+   "category": "instructions",
+   "code": "roo-code:project_roo_rules"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "project",
+   "path": "{project}/.roo/rules-*",
+   "kind": "glob",
+   "holds": "Workspace rules (dir preferred, single-file fallback; legacy .clinerules-{slug})",
+   "source": "official",
+   "ref": "https://github.com/RooCodeInc/Roo-Code-Docs/blob/main/docs/features/custom-instructions.md",
+   "env": "AGENTS",
+   "category": "instructions",
+   "code": "roo-code:project_roo_rules_star"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "project",
+   "path": "{project}/.roo/rules-*/.roorules",
+   "kind": "glob",
+   "holds": "Workspace rules (dir preferred, single-file fallback; legacy .clinerules-{slug})",
+   "source": "official",
+   "ref": "https://github.com/RooCodeInc/Roo-Code-Docs/blob/main/docs/features/custom-instructions.md",
+   "env": "AGENTS",
+   "category": "instructions",
+   "code": "roo-code:project_roo_rules_star_roorules"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "project",
+   "path": "{project}/.roo/rules-*/.roorules-*",
+   "kind": "glob",
+   "holds": "Workspace rules (dir preferred, single-file fallback; legacy .clinerules-{slug})",
+   "source": "official",
+   "ref": "https://github.com/RooCodeInc/Roo-Code-Docs/blob/main/docs/features/custom-instructions.md",
+   "env": "AGENTS",
+   "category": "instructions",
+   "code": "roo-code:project_roo_rules_star_roorules_star"
+  },
+  {
+   "tool": "roo-code",
+   "scope": "project",
+   "path": "{project}/.roo/rules-*/AGENTS.md",
+   "kind": "glob",
+   "holds": "Workspace rules (dir preferred, single-file fallback; legacy .clinerules-{slug})",
+   "source": "official",
+   "ref": "https://github.com/RooCodeInc/Roo-Code-Docs/blob/main/docs/features/custom-instructions.md",
+   "env": "AGENTS",
+   "category": "agents",
+   "code": "roo-code:project_roo_rules_star_agents_md"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "user",
+   "path": "{home}/.codeium/windsurf/mcp_config.json",
+   "kind": "file",
+   "holds": "Editor MCP discovery file (stable); Next build uses ~/.codeium/windsurf-next/mcp_config.json",
+   "source": "official",
+   "ref": "https://docs.devin.ai/windsurf/plugins/cascade/mcp",
+   "category": "mcp",
+   "code": "windsurf:home_codeium_windsurf_mcp_config_json"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "user",
+   "path": "{home}/.config/devin/mcp_config.json",
+   "kind": "file",
+   "holds": "Cascade-opened MCP config in current Devin Desktop (successor of Windsurf); also Devin Local user MCP",
+   "source": "official",
+   "ref": "https://docs.devin.ai/windsurf/plugins/cascade/mcp",
+   "env": "XDG_CONFIG_HOME",
+   "os": [
+    "darwin"
+   ],
+   "category": "mcp",
+   "code": "windsurf:home_config_devin_mcp_config_json@darwin"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "user",
+   "path": "{appconfig}/devin/mcp_config.json",
+   "kind": "file",
+   "holds": "Cascade-opened MCP config (Devin Desktop)",
+   "source": "official",
+   "ref": "https://docs.devin.ai/windsurf/plugins/cascade/mcp",
+   "env": "XDG_CONFIG_HOME",
+   "os": [
+    "linux"
+   ],
+   "category": "mcp",
+   "code": "windsurf:appconfig_devin_mcp_config_json@linux"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "user",
+   "path": "{roaming}/devin/mcp_config.json",
+   "kind": "file",
+   "holds": "Cascade-opened MCP config (Devin Desktop)",
+   "source": "official",
+   "ref": "https://docs.devin.ai/windsurf/plugins/cascade/mcp",
+   "os": [
+    "win32"
+   ],
+   "category": "mcp",
+   "code": "windsurf:roaming_devin_mcp_config_json@win32"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "user",
+   "path": "{home}/.codeium/windsurf/memories",
+   "kind": "dir",
+   "holds": "Auto-generated Cascade memories (per workspace, local only)",
+   "source": "official",
+   "ref": "https://docs.windsurf.com/zh/windsurf/cascade/memories",
+   "category": "config",
+   "code": "windsurf:home_codeium_windsurf_memories"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "user",
+   "path": "{home}/.codeium/windsurf/memories/global_rules.md",
+   "kind": "file",
+   "holds": "Global rules (always on, 6,000 char limit)",
+   "source": "official",
+   "ref": "https://docs.windsurf.com/zh/windsurf/cascade/memories",
+   "category": "instructions",
+   "code": "windsurf:home_codeium_windsurf_memories_global_rules_md"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "project",
+   "path": "{project}/.windsurf/rules",
+   "kind": "dir",
+   "holds": "Workspace rules (*.md with trigger frontmatter); also .windsurfrules legacy",
+   "source": "official",
+   "ref": "https://docs.windsurf.com/zh/windsurf/cascade/memories",
+   "category": "instructions",
+   "code": "windsurf:project_windsurf_rules"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "system",
+   "path": "/Library/Application Support/Windsurf",
+   "kind": "dir",
+   "holds": "Enterprise system rules, skills, workflows, hooks",
+   "source": "official",
+   "ref": "https://docs.windsurf.com/zh/windsurf/cascade/memories",
+   "os": [
+    "darwin"
+   ],
+   "category": "hooks",
+   "code": "windsurf:library_application_support_windsurf@darwin"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "system",
+   "path": "/etc/windsurf",
+   "kind": "dir",
+   "holds": "Enterprise system rules, skills, workflows, hooks (Linux/WSL)",
+   "source": "official",
+   "ref": "https://docs.windsurf.com/zh/windsurf/cascade/memories",
+   "os": [
+    "linux"
+   ],
+   "category": "hooks",
+   "code": "windsurf:etc_windsurf@linux"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "system",
+   "path": "{programdata}/Windsurf",
+   "kind": "dir",
+   "holds": "Enterprise system rules, skills, workflows, hooks",
+   "source": "official",
+   "ref": "https://docs.windsurf.com/zh/windsurf/cascade/memories",
+   "os": [
+    "win32"
+   ],
+   "category": "hooks",
+   "code": "windsurf:programdata_windsurf@win32"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "user",
+   "path": "{home}/.codeium/windsurf/hooks.json",
+   "kind": "file",
+   "holds": "User Cascade hooks (JetBrains plugin: ~/.codeium/hooks.json)",
+   "source": "official",
+   "ref": "https://docs.windsurf.com/zh/windsurf/cascade/hooks",
+   "category": "hooks",
+   "code": "windsurf:home_codeium_windsurf_hooks_json"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "project",
+   "path": "{project}/.windsurf/hooks.json",
+   "kind": "file",
+   "holds": "Workspace Cascade hooks",
+   "source": "official",
+   "ref": "https://docs.windsurf.com/zh/windsurf/cascade/hooks",
+   "category": "hooks",
+   "code": "windsurf:project_windsurf_hooks_json"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "user",
+   "path": "{home}/.codeium/windsurf/skills",
+   "kind": "dir",
+   "holds": "Global skills; also reads ~/.agents/skills/ (and ~/.claude/skills/ if enabled)",
+   "source": "official",
+   "ref": "https://docs.windsurf.com/zh/windsurf/cascade/skills",
+   "category": "skills",
+   "code": "windsurf:home_codeium_windsurf_skills"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "project",
+   "path": "{project}/.windsurf/skills",
+   "kind": "dir",
+   "holds": "Workspace skills; also .agents/skills/",
+   "source": "official",
+   "ref": "https://docs.windsurf.com/zh/windsurf/cascade/skills",
+   "category": "skills",
+   "code": "windsurf:project_windsurf_skills"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "user",
+   "path": "{home}/.codeium/windsurf/global_workflows",
+   "kind": "dir",
+   "holds": "Global workflows (*.md slash commands)",
+   "source": "official",
+   "ref": "https://docs.devin.ai/desktop/cascade.md",
+   "category": "commands",
+   "code": "windsurf:home_codeium_windsurf_global_workflows"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "project",
+   "path": "{project}/.windsurf/workflows",
+   "kind": "dir",
+   "holds": "Workspace workflows",
+   "source": "official",
+   "ref": "https://docs.devin.ai/desktop/cascade.md",
+   "category": "commands",
+   "code": "windsurf:project_windsurf_workflows"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "user",
+   "path": "{home}/.codeium/.codeiumignore",
+   "kind": "file",
+   "holds": "Global ignore rules for all workspaces (project: .codeiumignore / .devinignore)",
+   "source": "official",
+   "ref": "https://docs.devin.ai/desktop/cascade.md",
+   "category": "instructions",
+   "code": "windsurf:home_codeium_codeiumignore"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "user",
+   "path": "{home}/.windsurf/worktrees/*",
+   "kind": "glob",
+   "holds": "Git worktrees created for Cascade sessions",
+   "source": "official",
+   "ref": "https://docs.devin.ai/desktop/cascade.md",
+   "category": "history",
+   "code": "windsurf:home_windsurf_worktrees_star"
+  },
+  {
+   "tool": "windsurf",
+   "scope": "project",
+   "path": "{project}/.devin",
+   "kind": "dir",
+   "holds": "Devin Local (Windsurf successor) project customizations; user: ~/.devin/rules/, ~/.devin/global_rules.md, ~/.config/devin/skills/",
+   "source": "official",
+   "ref": "https://docs.devin.ai/desktop/devin-local/customizations.md",
+   "category": "skills",
+   "code": "windsurf:project_devin"
+  },
+  {
+   "tool": "continue",
+   "scope": "user",
+   "path": "{home}/.continue/config.yaml",
+   "kind": "file",
+   "holds": "Default config (models, rules, prompts, mcpServers) for IDE extensions and cn CLI; config.json deprecated",
+   "source": "official",
+   "ref": "https://docs.continue.dev/cli/configuration",
+   "category": "mcp",
+   "code": "continue:home_continue_config_yaml"
+  },
+  {
+   "tool": "continue",
+   "scope": "project",
+   "path": "{project}/.continue/rules",
+   "kind": "dir",
+   "holds": "Project rule files (.md with frontmatter or YAML), loaded lexicographically",
+   "source": "official",
+   "ref": "https://docs.continue.dev/customize/deep-dives/rules",
+   "category": "instructions",
+   "code": "continue:project_continue_rules"
+  },
+  {
+   "tool": "continue",
+   "scope": "project",
+   "path": "{project}/.continue/mcpServers",
+   "kind": "dir",
+   "holds": "Standalone MCP server blocks (YAML) or copied JSON MCP configs",
+   "source": "official",
+   "ref": "https://docs.continue.dev/customize/deep-dives/mcp",
+   "category": "mcp",
+   "code": "continue:project_continue_mcpservers"
+  },
+  {
+   "tool": "aider",
+   "scope": "user",
+   "path": "{home}/.aider.conf.yml",
+   "kind": "file",
+   "holds": "YAML config (home dir; loaded first)",
+   "source": "official",
+   "ref": "https://aider.chat/docs/config/aider_conf.html",
+   "category": "config",
+   "code": "aider:home_aider_conf_yml"
+  },
+  {
+   "tool": "aider",
+   "scope": "project",
+   "path": "{project}/.aider.conf.yml",
+   "kind": "file",
+   "holds": "YAML config at git repo root and/or current dir (later wins)",
+   "source": "official",
+   "ref": "https://aider.chat/docs/config/aider_conf.html",
+   "category": "config",
+   "code": "aider:project_aider_conf_yml"
+  },
+  {
+   "tool": "aider",
+   "scope": "project",
+   "path": "{project}/.aider.input.history",
+   "kind": "file",
+   "holds": "Chat input history (default name)",
+   "source": "official",
+   "ref": "https://aider.chat/docs/config/aider_conf.html",
+   "category": "history",
+   "code": "aider:project_aider_input_history"
+  },
+  {
+   "tool": "aider",
+   "scope": "project",
+   "path": "{project}/.aider.chat.history.md",
+   "kind": "file",
+   "holds": "Chat history (default name)",
+   "source": "official",
+   "ref": "https://aider.chat/docs/config/aider_conf.html",
+   "category": "history",
+   "code": "aider:project_aider_chat_history_md"
+  },
+  {
+   "tool": "aider",
+   "scope": "project",
+   "path": "{project}/.aider.model.settings.yml",
+   "kind": "file",
+   "holds": "Model settings and context/cost metadata for unknown models",
+   "source": "official",
+   "ref": "https://aider.chat/docs/config/aider_conf.html",
+   "category": "config",
+   "code": "aider:project_aider_model_settings_yml"
+  },
+  {
+   "tool": "aider",
+   "scope": "project",
+   "path": "{project}/.aider.model.metadata.json",
+   "kind": "file",
+   "holds": "Model settings and context/cost metadata for unknown models",
+   "source": "official",
+   "ref": "https://aider.chat/docs/config/aider_conf.html",
+   "category": "state",
+   "code": "aider:project_aider_model_metadata_json"
+  },
+  {
+   "tool": "opencode",
+   "scope": "user",
+   "path": "{home}/.config/opencode/opencode.json",
+   "kind": "file",
+   "holds": "Global config (providers, MCP, agents, permissions)",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/config/",
+   "category": "mcp",
+   "code": "opencode:home_config_opencode_opencode_json"
+  },
+  {
+   "tool": "opencode",
+   "scope": "user",
+   "path": "{home}/.config/opencode/opencode.jsonc",
+   "kind": "file",
+   "holds": "Global config (providers, MCP, agents, permissions)",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/config/",
+   "category": "mcp",
+   "code": "opencode:home_config_opencode_opencode_jsonc"
+  },
+  {
+   "tool": "opencode",
+   "scope": "project",
+   "path": "{project}/opencode.json",
+   "kind": "file",
+   "holds": "Project config (merged from root down; .opencode wins)",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/config/",
+   "env": "OPENCODE_DISABLE_PROJECT_CONFIG",
+   "category": "config",
+   "code": "opencode:project_opencode_json"
+  },
+  {
+   "tool": "opencode",
+   "scope": "project",
+   "path": "{project}/opencode.jsonc",
+   "kind": "file",
+   "holds": "Project config (merged from root down; .opencode wins)",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/config/",
+   "env": "OPENCODE_DISABLE_PROJECT_CONFIG",
+   "category": "config",
+   "code": "opencode:project_opencode_jsonc"
+  },
+  {
+   "tool": "opencode",
+   "scope": "project",
+   "path": "{project}/.opencode/opencode.json",
+   "kind": "file",
+   "holds": "Project config (merged from root down; .opencode wins)",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/config/",
+   "env": "OPENCODE_DISABLE_PROJECT_CONFIG",
+   "category": "config",
+   "code": "opencode:project_opencode_opencode_json"
+  },
+  {
+   "tool": "opencode",
+   "scope": "project",
+   "path": "{project}/.opencode/opencode.jsonc",
+   "kind": "file",
+   "holds": "Project config (merged from root down; .opencode wins)",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/config/",
+   "env": "OPENCODE_DISABLE_PROJECT_CONFIG",
+   "category": "config",
+   "code": "opencode:project_opencode_opencode_jsonc"
+  },
+  {
+   "tool": "opencode",
+   "scope": "system",
+   "path": "/Library/Application Support/opencode",
+   "kind": "dir",
+   "holds": "Managed machine-wide config + agents/, commands/, skills/, plugins/; also MDM plist ai.opencode.managed",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/config/",
+   "os": [
+    "darwin"
+   ],
+   "category": "skills",
+   "code": "opencode:library_application_support_opencode@darwin"
+  },
+  {
+   "tool": "opencode",
+   "scope": "system",
+   "path": "/etc/opencode",
+   "kind": "dir",
+   "holds": "Managed machine-wide config + agents/, commands/, skills/, plugins/",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/config/",
+   "os": [
+    "linux"
+   ],
+   "category": "skills",
+   "code": "opencode:etc_opencode@linux"
+  },
+  {
+   "tool": "opencode",
+   "scope": "system",
+   "path": "{programdata}/opencode",
+   "kind": "dir",
+   "holds": "Managed machine-wide config + agents/, commands/, skills/, plugins/",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/config/",
+   "os": [
+    "win32"
+   ],
+   "category": "skills",
+   "code": "opencode:programdata_opencode@win32"
+  },
+  {
+   "tool": "opencode",
+   "scope": "user",
+   "path": "{home}/.config/opencode/AGENTS.md",
+   "kind": "file",
+   "holds": "Global instructions (falls back to ~/.claude/CLAUDE.md)",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/instructions/",
+   "env": "OPENCODE_DISABLE_CLAUDE_CODE_PROMPT",
+   "category": "agents",
+   "code": "opencode:home_config_opencode_agents_md"
+  },
+  {
+   "tool": "opencode",
+   "scope": "project",
+   "path": "{project}/AGENTS.md",
+   "kind": "file",
+   "holds": "Project instructions",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/instructions/",
+   "env": "OPENCODE_DISABLE_PROJECT_CONFIG",
+   "category": "agents",
+   "code": "opencode:project_agents_md"
+  },
+  {
+   "tool": "opencode",
+   "scope": "user",
+   "path": "{home}/.config/opencode/agents",
+   "kind": "dir",
+   "holds": "Global markdown agents",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/agents/",
+   "category": "agents",
+   "code": "opencode:home_config_opencode_agents"
+  },
+  {
+   "tool": "opencode",
+   "scope": "project",
+   "path": "{project}/.opencode/agents",
+   "kind": "dir",
+   "holds": "Project markdown agents",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/agents/",
+   "category": "agents",
+   "code": "opencode:project_opencode_agents"
+  },
+  {
+   "tool": "opencode",
+   "scope": "user",
+   "path": "{home}/.local/share/opencode/opencode.db",
+   "kind": "file",
+   "holds": "Database (sessions/app state)",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/troubleshooting/",
+   "env": "OPENCODE_DB",
+   "category": "history",
+   "code": "opencode:home_local_share_opencode_opencode_db"
+  },
+  {
+   "tool": "opencode",
+   "scope": "user",
+   "path": "{home}/.local/share/opencode/log",
+   "kind": "dir",
+   "holds": "opencode.log, heap snapshots, CPU profiles",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/troubleshooting/",
+   "category": "logs",
+   "code": "opencode:home_local_share_opencode_log"
+  },
+  {
+   "tool": "opencode",
+   "scope": "user",
+   "path": "{home}/.local/state/opencode/service.json",
+   "kind": "file",
+   "holds": "Background service registration and private service config",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/troubleshooting/",
+   "category": "state",
+   "code": "opencode:home_local_state_opencode_service_json"
+  },
+  {
+   "tool": "opencode",
+   "scope": "user",
+   "path": "{home}/.config/opencode/service.json",
+   "kind": "file",
+   "holds": "Background service registration and private service config",
+   "source": "official",
+   "ref": "https://opencode.ai/docs/troubleshooting/",
+   "category": "config",
+   "code": "opencode:home_config_opencode_service_json"
+  },
+  {
+   "tool": "goose",
+   "scope": "user",
+   "path": "{home}/.config/goose/config.yaml",
+   "kind": "file",
+   "holds": "Main config: provider, model, extensions (MCP), settings",
+   "source": "official",
+   "ref": "https://goose-docs.ai/docs/guides/config-files/",
+   "env": "GOOSE_PATH_ROOT",
+   "os": [
+    "darwin"
+   ],
+   "category": "mcp",
+   "code": "goose:home_config_goose_config_yaml@darwin"
+  },
+  {
+   "tool": "goose",
+   "scope": "user",
+   "path": "{appconfig}/goose/config.yaml",
+   "kind": "file",
+   "holds": "Main config",
+   "source": "official",
+   "ref": "https://goose-docs.ai/docs/guides/config-files/",
+   "env": "GOOSE_PATH_ROOT",
+   "os": [
+    "linux"
+   ],
+   "category": "config",
+   "code": "goose:appconfig_goose_config_yaml@linux"
+  },
+  {
+   "tool": "goose",
+   "scope": "user",
+   "path": "{roaming}/Block/goose/config/config.yaml",
+   "kind": "file",
+   "holds": "Main config",
+   "source": "official",
+   "ref": "https://goose-docs.ai/docs/guides/config-files/",
+   "env": "GOOSE_PATH_ROOT",
+   "os": [
+    "win32"
+   ],
+   "category": "config",
+   "code": "goose:roaming_block_goose_config_config_yaml@win32"
+  },
+  {
+   "tool": "goose",
+   "scope": "user",
+   "path": "{home}/Library/Application Support/Block/goose",
+   "kind": "dir",
+   "holds": "Default root for goose data/state (config/, data/, state/ when overridden)",
+   "source": "official",
+   "ref": "https://goose-docs.ai/docs/guides/environment-variables/",
+   "env": "GOOSE_PATH_ROOT",
+   "os": [
+    "darwin"
+   ],
+   "category": "state",
+   "code": "goose:home_library_application_support_block_goose@darwin"
+  },
+  {
+   "tool": "goose",
+   "scope": "user",
+   "path": "{appdata}/goose",
+   "kind": "dir",
+   "holds": "Default root for goose data/state",
+   "source": "official",
+   "ref": "https://goose-docs.ai/docs/guides/environment-variables/",
+   "env": "GOOSE_PATH_ROOT",
+   "os": [
+    "linux"
+   ],
+   "category": "state",
+   "code": "goose:appdata_goose@linux"
+  },
+  {
+   "tool": "goose",
+   "scope": "user",
+   "path": "{roaming}/Block/goose",
+   "kind": "dir",
+   "holds": "Default root for goose data/config/state",
+   "source": "official",
+   "ref": "https://goose-docs.ai/docs/guides/environment-variables/",
+   "env": "GOOSE_PATH_ROOT",
+   "os": [
+    "win32"
+   ],
+   "category": "state",
+   "code": "goose:roaming_block_goose@win32"
+  },
+  {
+   "tool": "goose",
+   "scope": "user",
+   "path": "{home}/.config/goose/.goosehints",
+   "kind": "file",
+   "holds": "Global hints (instructions); also AGENTS.md there",
+   "source": "official",
+   "ref": "https://goose-docs.ai/docs/guides/context-engineering/using-goosehints/",
+   "env": "CONTEXT_FILE_NAMES",
+   "category": "instructions",
+   "code": "goose:home_config_goose_goosehints"
+  },
+  {
+   "tool": "goose",
+   "scope": "project",
+   "path": "{project}/.goosehints",
+   "kind": "file",
+   "holds": "Local hints in project root or any subdirectory",
+   "source": "official",
+   "ref": "https://goose-docs.ai/docs/guides/context-engineering/using-goosehints/",
+   "env": "CONTEXT_FILE_NAMES",
+   "category": "instructions",
+   "code": "goose:project_goosehints"
+  },
+  {
+   "tool": "goose",
+   "scope": "project",
+   "path": "{project}/AGENTS.md",
+   "kind": "file",
+   "holds": "Local hints in project root or any subdirectory",
+   "source": "official",
+   "ref": "https://goose-docs.ai/docs/guides/context-engineering/using-goosehints/",
+   "env": "CONTEXT_FILE_NAMES",
+   "category": "agents",
+   "code": "goose:project_agents_md"
+  },
+  {
+   "tool": "kiro",
+   "scope": "user",
+   "path": "{home}/.kiro/settings/mcp.json",
+   "kind": "file",
+   "holds": "User MCP servers",
+   "source": "official",
+   "ref": "https://kiro.dev/docs/mcp/configuration/",
+   "category": "mcp",
+   "code": "kiro:home_kiro_settings_mcp_json"
+  },
+  {
+   "tool": "kiro",
+   "scope": "project",
+   "path": "{project}/.kiro/settings/mcp.json",
+   "kind": "file",
+   "holds": "Workspace MCP servers (merged, workspace wins)",
+   "source": "official",
+   "ref": "https://kiro.dev/docs/mcp/configuration/",
+   "category": "mcp",
+   "code": "kiro:project_kiro_settings_mcp_json"
+  },
+  {
+   "tool": "kiro",
+   "scope": "user",
+   "path": "{home}/.kiro/steering",
+   "kind": "dir",
+   "holds": "Global steering (instruction) files",
+   "source": "official",
+   "ref": "https://kiro.dev/docs/steering/",
+   "category": "instructions",
+   "code": "kiro:home_kiro_steering"
+  },
+  {
+   "tool": "kiro",
+   "scope": "project",
+   "path": "{project}/.kiro/steering",
+   "kind": "dir",
+   "holds": "Workspace steering (product.md, tech.md, structure.md, custom); AGENTS.md also supported",
+   "source": "official",
+   "ref": "https://kiro.dev/docs/steering/",
+   "category": "instructions",
+   "code": "kiro:project_kiro_steering"
+  },
+  {
+   "tool": "kiro",
+   "scope": "project",
+   "path": "{project}/.kiro/hooks",
+   "kind": "dir",
+   "holds": "Hook definitions (*.json)",
+   "source": "official",
+   "ref": "https://kiro.dev/docs/hooks/",
+   "category": "hooks",
+   "code": "kiro:project_kiro_hooks"
+  },
+  {
+   "tool": "kiro",
+   "scope": "user",
+   "path": "{home}/.kiro/hooks",
+   "kind": "dir",
+   "holds": "Global hooks (Kiro CLI V3)",
+   "source": "official",
+   "ref": "https://kiro.dev/docs/hooks/",
+   "category": "hooks",
+   "code": "kiro:home_kiro_hooks"
+  },
+  {
+   "tool": "kiro",
+   "scope": "user",
+   "path": "{home}/.kiro/skills",
+   "kind": "dir",
+   "holds": "Global skills",
+   "source": "official",
+   "ref": "https://kiro.dev/docs/skills/",
+   "category": "skills",
+   "code": "kiro:home_kiro_skills"
+  },
+  {
+   "tool": "kiro",
+   "scope": "project",
+   "path": "{project}/.kiro/skills",
+   "kind": "dir",
+   "holds": "Workspace skills",
+   "source": "official",
+   "ref": "https://kiro.dev/docs/skills/",
+   "category": "skills",
+   "code": "kiro:project_kiro_skills"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "user",
+   "path": "{home}/.qwen/settings.json",
+   "kind": "file",
+   "holds": "User settings (incl. MCP servers, model, tools)",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "env": "QWEN_HOME",
+   "category": "mcp",
+   "code": "qwen-code:home_qwen_settings_json"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "project",
+   "path": "{project}/.qwen/settings.json",
+   "kind": "file",
+   "holds": "Project settings; .qwen/ also holds sandbox profiles",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "category": "config",
+   "code": "qwen-code:project_qwen_settings_json"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "system",
+   "path": "/etc/qwen-code/settings.json",
+   "kind": "file",
+   "holds": "System override settings and system defaults",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "env": "QWEN_CODE_SYSTEM_SETTINGS_PATH",
+   "os": [
+    "linux"
+   ],
+   "category": "config",
+   "code": "qwen-code:etc_qwen_code_settings_json@linux"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "system",
+   "path": "/etc/qwen-code/system-defaults.json",
+   "kind": "file",
+   "holds": "System override settings and system defaults",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "env": "QWEN_CODE_SYSTEM_SETTINGS_PATH",
+   "os": [
+    "linux"
+   ],
+   "category": "config",
+   "code": "qwen-code:etc_qwen_code_system_defaults_json@linux"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "system",
+   "path": "{programdata}/qwen-code/settings.json",
+   "kind": "file",
+   "holds": "System override settings and system defaults",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "env": "QWEN_CODE_SYSTEM_SETTINGS_PATH",
+   "os": [
+    "win32"
+   ],
+   "category": "config",
+   "code": "qwen-code:programdata_qwen_code_settings_json@win32"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "system",
+   "path": "{programdata}/qwen-code/system-defaults.json",
+   "kind": "file",
+   "holds": "System override settings and system defaults",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "env": "QWEN_CODE_SYSTEM_SETTINGS_PATH",
+   "os": [
+    "win32"
+   ],
+   "category": "state",
+   "code": "qwen-code:programdata_qwen_code_system_defaults_json@win32"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "system",
+   "path": "/Library/Application Support/QwenCode/settings.json",
+   "kind": "file",
+   "holds": "System override settings and system defaults",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "env": "QWEN_CODE_SYSTEM_SETTINGS_PATH",
+   "os": [
+    "darwin"
+   ],
+   "category": "config",
+   "code": "qwen-code:library_application_support_qwencode_settings_json@darwin"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "system",
+   "path": "/Library/Application Support/QwenCode/system-defaults.json",
+   "kind": "file",
+   "holds": "System override settings and system defaults",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "env": "QWEN_CODE_SYSTEM_SETTINGS_PATH",
+   "os": [
+    "darwin"
+   ],
+   "category": "config",
+   "code": "qwen-code:library_application_support_qwencode_system_defaults_json@darwin"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "user",
+   "path": "{home}/.qwen/QWEN.md",
+   "kind": "file",
+   "holds": "Global context (instruction) file; project QWEN.md files loaded hierarchically",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "env": "QWEN_HOME",
+   "category": "instructions",
+   "code": "qwen-code:home_qwen_qwen_md"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "user",
+   "path": "{home}/.qwen/skills",
+   "kind": "dir",
+   "holds": "Skills; also reads ~/.agents/skills/ and skills.directories",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "env": "QWEN_HOME",
+   "category": "skills",
+   "code": "qwen-code:home_qwen_skills"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "user",
+   "path": "{home}/.qwen/tmp/*/shell_history",
+   "kind": "glob",
+   "holds": "Per-project shell history",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "env": "QWEN_HOME",
+   "category": "history",
+   "code": "qwen-code:home_qwen_tmp_star_shell_history"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "user",
+   "path": "{home}/.qwen/file-history",
+   "kind": "dir",
+   "holds": "Session backups for /rewind, plan files, models.dev cache, custom UI locales",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "env": "QWEN_HOME",
+   "category": "history",
+   "code": "qwen-code:home_qwen_file_history"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "user",
+   "path": "{home}/.qwen/plans",
+   "kind": "dir",
+   "holds": "Session backups for /rewind, plan files, models.dev cache, custom UI locales",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "env": "QWEN_HOME",
+   "category": "history",
+   "code": "qwen-code:home_qwen_plans"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "user",
+   "path": "{home}/.qwen/model-registry.json",
+   "kind": "dir",
+   "holds": "Session backups for /rewind, plan files, models.dev cache, custom UI locales",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "env": "QWEN_HOME",
+   "category": "history",
+   "code": "qwen-code:home_qwen_model_registry_json"
+  },
+  {
+   "tool": "qwen-code",
+   "scope": "user",
+   "path": "{home}/.qwen/locales",
+   "kind": "dir",
+   "holds": "Session backups for /rewind, plan files, models.dev cache, custom UI locales",
+   "source": "official",
+   "ref": "https://qwenlm.github.io/qwen-code-docs/en/users/configuration/settings/",
+   "env": "QWEN_HOME",
+   "category": "history",
+   "code": "qwen-code:home_qwen_locales"
+  },
+  {
+   "tool": "amp",
+   "scope": "user",
+   "path": "{home}/.config/amp/settings.json",
+   "kind": "file",
+   "holds": "User settings incl. amp.mcpServers",
+   "source": "official",
+   "ref": "https://ampcode.com/docs/cli/settings",
+   "os": [
+    "darwin"
+   ],
+   "category": "mcp",
+   "code": "amp:home_config_amp_settings_json@darwin"
+  },
+  {
+   "tool": "amp",
+   "scope": "user",
+   "path": "{home}/.config/amp/settings.jsonc",
+   "kind": "file",
+   "holds": "User settings incl. amp.mcpServers",
+   "source": "official",
+   "ref": "https://ampcode.com/docs/cli/settings",
+   "os": [
+    "darwin"
+   ],
+   "category": "mcp",
+   "code": "amp:home_config_amp_settings_jsonc@darwin"
+  },
+  {
+   "tool": "amp",
+   "scope": "user",
+   "path": "{appconfig}/amp/settings.json",
+   "kind": "file",
+   "holds": "User settings incl. amp.mcpServers",
+   "source": "official",
+   "ref": "https://ampcode.com/docs/cli/settings",
+   "os": [
+    "linux"
+   ],
+   "category": "mcp",
+   "code": "amp:appconfig_amp_settings_json@linux"
+  },
+  {
+   "tool": "amp",
+   "scope": "user",
+   "path": "{appconfig}/amp/settings.jsonc",
+   "kind": "file",
+   "holds": "User settings incl. amp.mcpServers",
+   "source": "official",
+   "ref": "https://ampcode.com/docs/cli/settings",
+   "os": [
+    "linux"
+   ],
+   "category": "mcp",
+   "code": "amp:appconfig_amp_settings_jsonc@linux"
+  },
+  {
+   "tool": "amp",
+   "scope": "user",
+   "path": "{home}/.config/amp/settings.json",
+   "kind": "file",
+   "holds": "User settings incl. amp.mcpServers",
+   "source": "official",
+   "ref": "https://ampcode.com/docs/cli/settings",
+   "os": [
+    "win32"
+   ],
+   "category": "mcp",
+   "code": "amp:home_config_amp_settings_json@win32"
+  },
+  {
+   "tool": "amp",
+   "scope": "user",
+   "path": "{home}/.config/amp/settings.jsonc",
+   "kind": "file",
+   "holds": "User settings incl. amp.mcpServers",
+   "source": "official",
+   "ref": "https://ampcode.com/docs/cli/settings",
+   "os": [
+    "win32"
+   ],
+   "category": "mcp",
+   "code": "amp:home_config_amp_settings_jsonc@win32"
+  },
+  {
+   "tool": "amp",
+   "scope": "project",
+   "path": "{project}/.amp/settings.json",
+   "kind": "file",
+   "holds": "Workspace settings (searched upward to repo root)",
+   "source": "official",
+   "ref": "https://ampcode.com/docs/cli/settings",
+   "category": "config",
+   "code": "amp:project_amp_settings_json"
+  },
+  {
+   "tool": "amp",
+   "scope": "project",
+   "path": "{project}/.amp/settings.jsonc",
+   "kind": "file",
+   "holds": "Workspace settings (searched upward to repo root)",
+   "source": "official",
+   "ref": "https://ampcode.com/docs/cli/settings",
+   "category": "config",
+   "code": "amp:project_amp_settings_jsonc"
+  },
+  {
+   "tool": "amp",
+   "scope": "user",
+   "path": "{home}/.config/amp/skills",
+   "kind": "dir",
+   "holds": "User skills; also reads .agents/skills/ and Claude dirs (.claude/skills/, ~/.claude/skills/, ~/.claude/plugins/cache/)",
+   "source": "official",
+   "ref": "https://ampcode.com/docs/cli/settings",
+   "category": "skills",
+   "code": "amp:home_config_amp_skills"
+  },
+  {
+   "tool": "amp",
+   "scope": "user",
+   "path": "{home}/.config/agents/skills",
+   "kind": "dir",
+   "holds": "User skills; also reads .agents/skills/ and Claude dirs (.claude/skills/, ~/.claude/skills/, ~/.claude/plugins/cache/)",
+   "source": "official",
+   "ref": "https://ampcode.com/docs/cli/settings",
+   "category": "skills",
+   "code": "amp:home_config_agents_skills"
+  },
+  {
+   "tool": "amp",
+   "scope": "user",
+   "path": "{home}/.agents/skills",
+   "kind": "dir",
+   "holds": "User skills; also reads .agents/skills/ and Claude dirs (.claude/skills/, ~/.claude/skills/, ~/.claude/plugins/cache/)",
+   "source": "official",
+   "ref": "https://ampcode.com/docs/cli/settings",
+   "category": "skills",
+   "code": "amp:home_agents_skills"
+  },
+  {
+   "tool": "amp",
+   "scope": "system",
+   "path": "/Library/Application Support/ampcode/managed-settings.json",
+   "kind": "file",
+   "holds": "Admin managed settings",
+   "source": "official",
+   "ref": "https://ampcode.com/docs/cli/settings",
+   "os": [
+    "darwin"
+   ],
+   "category": "config",
+   "code": "amp:library_application_support_ampcode_managed_settings_json@darwin"
+  },
+  {
+   "tool": "amp",
+   "scope": "system",
+   "path": "/etc/ampcode/managed-settings.json",
+   "kind": "file",
+   "holds": "Admin managed settings",
+   "source": "official",
+   "ref": "https://ampcode.com/docs/cli/settings",
+   "os": [
+    "linux"
+   ],
+   "category": "config",
+   "code": "amp:etc_ampcode_managed_settings_json@linux"
+  },
+  {
+   "tool": "amp",
+   "scope": "system",
+   "path": "{programdata}/ampcode/managed-settings.json",
+   "kind": "file",
+   "holds": "Admin managed settings",
+   "source": "official",
+   "ref": "https://ampcode.com/docs/cli/settings",
+   "os": [
+    "win32"
+   ],
+   "category": "config",
+   "code": "amp:programdata_ampcode_managed_settings_json@win32"
+  },
+  {
+   "tool": "ollama",
+   "scope": "user",
+   "path": "{home}/.ollama/models",
+   "kind": "dir",
+   "holds": "Downloaded models",
+   "source": "official",
+   "ref": "https://docs.ollama.com/faq",
+   "env": "OLLAMA_MODELS",
+   "os": [
+    "darwin"
+   ],
+   "category": "models",
+   "code": "ollama:home_ollama_models@darwin"
+  },
+  {
+   "tool": "ollama",
+   "scope": "system",
+   "path": "/usr/share/ollama/.ollama/models",
+   "kind": "dir",
+   "holds": "Downloaded models (service install)",
+   "source": "official",
+   "ref": "https://docs.ollama.com/faq",
+   "env": "OLLAMA_MODELS",
+   "os": [
+    "linux"
+   ],
+   "category": "models",
+   "code": "ollama:usr_share_ollama_ollama_models@linux"
+  },
+  {
+   "tool": "ollama",
+   "scope": "user",
+   "path": "{home}/.ollama/models",
+   "kind": "dir",
+   "holds": "Downloaded models; %USERPROFILE%\\.ollama also holds config",
+   "source": "official",
+   "ref": "https://docs.ollama.com/faq",
+   "env": "OLLAMA_MODELS",
+   "os": [
+    "win32"
+   ],
+   "category": "models",
+   "code": "ollama:home_ollama_models@win32"
+  },
+  {
+   "tool": "ollama",
+   "scope": "user",
+   "path": "{home}/.ollama/id_ed25519.pub",
+   "kind": "file",
+   "holds": "Ollama public key (Linux: /usr/share/ollama/.ollama/id_ed25519.pub; Windows: %USERPROFILE%\\.ollama\\id_ed25519.pub)",
+   "source": "official",
+   "ref": "https://docs.ollama.com/faq",
+   "os": [
+    "darwin"
+   ],
+   "category": "config",
+   "code": "ollama:home_ollama_id_ed25519_pub@darwin"
+  },
+  {
+   "tool": "ollama",
+   "scope": "user",
+   "path": "{home}/.ollama/server.json",
+   "kind": "file",
+   "holds": "Server settings such as disable_ollama_cloud",
+   "source": "official",
+   "ref": "https://docs.ollama.com/faq",
+   "category": "config",
+   "code": "ollama:home_ollama_server_json"
+  },
+  {
+   "tool": "ollama",
+   "scope": "user",
+   "path": "{home}/.ollama/logs/server.log",
+   "kind": "file",
+   "holds": "Server log (Linux systemd: journalctl -u ollama, no file)",
+   "source": "official",
+   "ref": "https://docs.ollama.com/troubleshooting",
+   "env": "OLLAMA_DEBUG",
+   "os": [
+    "darwin"
+   ],
+   "category": "logs",
+   "code": "ollama:home_ollama_logs_server_log@darwin"
+  },
+  {
+   "tool": "ollama",
+   "scope": "user",
+   "path": "{local}/Ollama",
+   "kind": "dir",
+   "holds": "Logs (server.log, server-#.log)",
+   "source": "official",
+   "ref": "https://docs.ollama.com/troubleshooting",
+   "os": [
+    "win32"
+   ],
+   "category": "logs",
+   "code": "ollama:local_ollama@win32"
+  },
+  {
+   "tool": "ollama",
+   "scope": "user",
+   "path": "{local}/Programs/Ollama",
+   "kind": "dir",
+   "holds": "Install folder / binaries (added to user PATH)",
+   "source": "official",
+   "ref": "https://docs.ollama.com/troubleshooting",
+   "os": [
+    "win32"
+   ],
+   "category": "install",
+   "code": "ollama:local_programs_ollama@win32"
+  },
+  {
+   "tool": "lmstudio",
+   "scope": "user",
+   "path": "{home}/.lmstudio/models",
+   "kind": "dir",
+   "holds": "Downloaded models (publisher/model/file.gguf); changeable in My Models tab",
+   "source": "official",
+   "ref": "https://lmstudio.ai/docs/app/advanced/import-model",
+   "os": [
+    "darwin"
+   ],
+   "category": "models",
+   "code": "lmstudio:home_lmstudio_models@darwin"
+  },
+  {
+   "tool": "lmstudio",
+   "scope": "user",
+   "path": "{home}/.lmstudio/models",
+   "kind": "dir",
+   "holds": "Downloaded models",
+   "source": "official",
+   "ref": "https://lmstudio.ai/docs/app/advanced/import-model",
+   "os": [
+    "linux"
+   ],
+   "category": "models",
+   "code": "lmstudio:home_lmstudio_models@linux"
+  },
+  {
+   "tool": "lmstudio",
+   "scope": "user",
+   "path": "{home}/.lmstudio/models",
+   "kind": "dir",
+   "holds": "Downloaded models",
+   "source": "community",
+   "ref": "https://tensorarchive.ai/wiki/lm-studio-model-location/",
+   "os": [
+    "win32"
+   ],
+   "category": "models",
+   "code": "lmstudio:home_lmstudio_models@win32"
+  },
+  {
+   "tool": "lmstudio",
+   "scope": "user",
+   "path": "{home}/.lmstudio/mcp.json",
+   "kind": "file",
+   "holds": "MCP servers (Cursor mcp.json notation); official docs say 'the app's mcp.json' without a path",
+   "source": "community",
+   "ref": "https://mcneel.github.io/RhinoAI/docs/getting-started/lm-studio/",
+   "category": "mcp",
+   "code": "lmstudio:home_lmstudio_mcp_json"
+  },
+  {
+   "tool": "huggingface",
+   "scope": "user",
+   "path": "{home}/.cache/huggingface",
+   "kind": "dir",
+   "holds": "HF_HOME: token and caches",
+   "source": "official",
+   "ref": "https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables",
+   "env": "HF_HOME",
+   "category": "auth",
+   "code": "huggingface:home_cache_huggingface"
+  },
+  {
+   "tool": "huggingface",
+   "scope": "user",
+   "path": "{home}/.cache/huggingface/hub",
+   "kind": "dir",
+   "holds": "Cached models, datasets, spaces (downloaded models)",
+   "source": "official",
+   "ref": "https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables",
+   "env": "HF_HUB_CACHE",
+   "category": "cache",
+   "code": "huggingface:home_cache_huggingface_hub"
+  },
+  {
+   "tool": "huggingface",
+   "scope": "user",
+   "path": "{home}/.cache/huggingface/xet",
+   "kind": "dir",
+   "holds": "Xet shard cache and upload staging",
+   "source": "official",
+   "ref": "https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables",
+   "env": "HF_XET_CACHE",
+   "category": "cache",
+   "code": "huggingface:home_cache_huggingface_xet"
+  },
+  {
+   "tool": "huggingface",
+   "scope": "user",
+   "path": "{home}/.cache/huggingface/assets",
+   "kind": "dir",
+   "holds": "Assets from downstream libraries",
+   "source": "official",
+   "ref": "https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables",
+   "env": "HF_ASSETS_CACHE",
+   "category": "cache",
+   "code": "huggingface:home_cache_huggingface_assets"
+  },
+  {
+   "tool": "huggingface",
+   "scope": "user",
+   "path": "{home}/.cache/huggingface/token",
+   "kind": "file",
+   "holds": "User access token",
+   "source": "official",
+   "ref": "https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables",
+   "env": "HF_TOKEN_PATH",
+   "category": "auth",
+   "code": "huggingface:home_cache_huggingface_token"
+  },
+  {
+   "tool": "jan",
+   "scope": "user",
+   "path": "{roaming}/Jan/data",
+   "kind": "dir",
+   "holds": "Data folder: threads, assistants, extensions, logs/app.log, llamacpp/models, mlx/models, agent-workspace (memory, skills, subagents)",
+   "source": "official",
+   "ref": "https://docs.jan.ai/desktop/data-folder",
+   "os": [
+    "win32"
+   ],
+   "category": "skills",
+   "code": "jan:roaming_jan_data@win32"
+  },
+  {
+   "tool": "jan",
+   "scope": "user",
+   "path": "{home}/Library/Application Support/Jan/data",
+   "kind": "dir",
+   "holds": "Data folder (same layout)",
+   "source": "official",
+   "ref": "https://docs.jan.ai/desktop/data-folder",
+   "os": [
+    "darwin"
+   ],
+   "category": "state",
+   "code": "jan:home_library_application_support_jan_data@darwin"
+  },
+  {
+   "tool": "jan",
+   "scope": "user",
+   "path": "{appdata}/Jan/data",
+   "kind": "dir",
+   "holds": "Data folder (same layout)",
+   "source": "official",
+   "ref": "https://docs.jan.ai/desktop/data-folder",
+   "env": "XDG_DATA_HOME",
+   "os": [
+    "linux"
+   ],
+   "category": "state",
+   "code": "jan:appdata_jan_data@linux"
+  },
+  {
+   "tool": "jan",
+   "scope": "user",
+   "path": "{home}/.jan",
+   "kind": "dir",
+   "holds": "Jan Agent user/project stores (separate skills and memory)",
+   "source": "official",
+   "ref": "https://docs.jan.ai/desktop/data-folder",
+   "category": "skills",
+   "code": "jan:home_jan"
+  },
+  {
+   "tool": "gpt4all",
+   "scope": "user",
+   "path": "{local}/nomic.ai/GPT4All",
+   "kind": "dir",
+   "holds": "Default download path for models",
+   "source": "official",
+   "ref": "https://docs.gpt4all.io/gpt4all_desktop/settings.html",
+   "os": [
+    "win32"
+   ],
+   "category": "config",
+   "code": "gpt4all:local_nomic_ai_gpt4all@win32"
+  },
+  {
+   "tool": "gpt4all",
+   "scope": "user",
+   "path": "{home}/Library/Application Support/nomic.ai/GPT4All",
+   "kind": "dir",
+   "holds": "Default download path for models",
+   "source": "official",
+   "ref": "https://docs.gpt4all.io/gpt4all_desktop/settings.html",
+   "os": [
+    "darwin"
+   ],
+   "category": "config",
+   "code": "gpt4all:home_library_application_support_nomic_ai_gpt4all@darwin"
+  },
+  {
+   "tool": "gpt4all",
+   "scope": "user",
+   "path": "{appdata}/nomic.ai/GPT4All",
+   "kind": "dir",
+   "holds": "Default download path for models",
+   "source": "official",
+   "ref": "https://docs.gpt4all.io/gpt4all_desktop/settings.html",
+   "os": [
+    "linux"
+   ],
+   "category": "state",
+   "code": "gpt4all:appdata_nomic_ai_gpt4all@linux"
+  },
+  {
+   "tool": "npm",
+   "scope": "user",
+   "path": "{home}/.npm",
+   "kind": "dir",
+   "holds": "npm cache; npx installs requested packages into a folder inside the npm cache",
+   "source": "official",
+   "ref": "https://docs.npmjs.com/cli/v11/configuring-npm/folders/",
+   "os": [
+    "darwin"
+   ],
+   "category": "cache",
+   "code": "npm:home_npm@darwin"
+  },
+  {
+   "tool": "npm",
+   "scope": "user",
+   "path": "{home}/.npm",
+   "kind": "dir",
+   "holds": "npm cache incl. npx package folder",
+   "source": "official",
+   "ref": "https://docs.npmjs.com/cli/v11/commands/npm-exec/",
+   "os": [
+    "linux"
+   ],
+   "category": "cache",
+   "code": "npm:home_npm@linux"
+  },
+  {
+   "tool": "npm",
+   "scope": "user",
+   "path": "{local}/npm-cache",
+   "kind": "dir",
+   "holds": "npm cache incl. npx package folder",
+   "source": "official",
+   "ref": "https://docs.npmjs.com/cli/v11/configuring-npm/folders/",
+   "os": [
+    "win32"
+   ],
+   "category": "cache",
+   "code": "npm:local_npm_cache@win32"
+  },
+  {
+   "tool": "npm",
+   "scope": "user",
+   "path": "{roaming}/npm",
+   "kind": "dir",
+   "holds": "Global prefix (global installs/binaries); Unix default /usr/local",
+   "source": "official",
+   "ref": "https://docs.npmjs.com/cli/v11/configuring-npm/folders/",
+   "os": [
+    "win32"
+   ],
+   "category": "install",
+   "code": "npm:roaming_npm@win32"
+  },
+  {
+   "tool": "uv",
+   "scope": "user",
+   "path": "{home}/.cache/uv",
+   "kind": "dir",
+   "holds": "Dependency cache; uvx/script environments",
+   "source": "official",
+   "ref": "https://docs.astral.sh/uv/reference/storage/",
+   "env": "XDG_CACHE_HOME",
+   "os": [
+    "darwin"
+   ],
+   "category": "cache",
+   "code": "uv:home_cache_uv@darwin"
+  },
+  {
+   "tool": "uv",
+   "scope": "user",
+   "path": "{appcache}/uv",
+   "kind": "dir",
+   "holds": "Dependency cache; uvx/script environments",
+   "source": "official",
+   "ref": "https://docs.astral.sh/uv/reference/storage/",
+   "env": "XDG_CACHE_HOME",
+   "os": [
+    "linux"
+   ],
+   "category": "cache",
+   "code": "uv:appcache_uv@linux"
+  },
+  {
+   "tool": "uv",
+   "scope": "user",
+   "path": "{local}/uv/cache",
+   "kind": "dir",
+   "holds": "Dependency cache",
+   "source": "official",
+   "ref": "https://docs.astral.sh/uv/reference/storage/",
+   "os": [
+    "win32"
+   ],
+   "category": "cache",
+   "code": "uv:local_uv_cache@win32"
+  },
+  {
+   "tool": "uv",
+   "scope": "user",
+   "path": "{home}/.local/share/uv",
+   "kind": "dir",
+   "holds": "Persistent data: installed tools and managed Pythons",
+   "source": "official",
+   "ref": "https://docs.astral.sh/uv/reference/storage/",
+   "env": "XDG_DATA_HOME",
+   "os": [
+    "darwin"
+   ],
+   "category": "install",
+   "code": "uv:home_local_share_uv@darwin"
+  },
+  {
+   "tool": "uv",
+   "scope": "user",
+   "path": "{appdata}/uv",
+   "kind": "dir",
+   "holds": "Persistent data: installed tools and managed Pythons",
+   "source": "official",
+   "ref": "https://docs.astral.sh/uv/reference/storage/",
+   "env": "XDG_DATA_HOME",
+   "os": [
+    "linux"
+   ],
+   "category": "install",
+   "code": "uv:appdata_uv@linux"
+  },
+  {
+   "tool": "uv",
+   "scope": "user",
+   "path": "{roaming}/uv/data",
+   "kind": "dir",
+   "holds": "Persistent data: tools, managed Pythons",
+   "source": "official",
+   "ref": "https://docs.astral.sh/uv/reference/storage/",
+   "env": "UV_TOOL_DIR",
+   "os": [
+    "win32"
+   ],
+   "category": "state",
+   "code": "uv:roaming_uv_data@win32"
+  },
+  {
+   "tool": "uv",
+   "scope": "user",
+   "path": "{home}/.local/bin",
+   "kind": "dir",
+   "holds": "Executables: uv/uvx, tool and Python executables",
+   "source": "official",
+   "ref": "https://docs.astral.sh/uv/reference/storage/",
+   "env": "XDG_BIN_HOME",
+   "category": "config",
+   "code": "uv:home_local_bin"
+  },
+  {
+   "tool": "uv",
+   "scope": "user",
+   "path": "{home}/.config/uv",
+   "kind": "dir",
+   "holds": "User config (uv.toml)",
+   "source": "official",
+   "ref": "https://docs.astral.sh/uv/reference/storage/",
+   "env": "XDG_CONFIG_HOME",
+   "category": "config",
+   "code": "uv:home_config_uv"
+  },
+  {
+   "tool": "uv",
+   "scope": "system",
+   "path": "/etc/uv",
+   "kind": "dir",
+   "holds": "System config",
+   "source": "official",
+   "ref": "https://docs.astral.sh/uv/reference/storage/",
+   "env": "XDG_CONFIG_DIRS",
+   "category": "config",
+   "code": "uv:etc_uv"
+  },
+  {
+   "tool": "pipx",
+   "scope": "user",
+   "path": "{appdata}/pipx",
+   "kind": "dir",
+   "holds": "PIPX_HOME: app venvs and shared libs (legacy ~/.local/pipx kept if present)",
+   "source": "official",
+   "ref": "https://pipx.pypa.io/stable/how-to/configure-paths.html",
+   "env": "PIPX_HOME",
+   "os": [
+    "linux"
+   ],
+   "category": "state",
+   "code": "pipx:appdata_pipx@linux"
+  },
+  {
+   "tool": "pipx",
+   "scope": "user",
+   "path": "{home}/Library/Application Support/pipx",
+   "kind": "dir",
+   "holds": "PIPX_HOME: app venvs and shared libs",
+   "source": "official",
+   "ref": "https://pipx.pypa.io/stable/how-to/configure-paths.html",
+   "env": "PIPX_HOME",
+   "os": [
+    "darwin"
+   ],
+   "category": "config",
+   "code": "pipx:home_library_application_support_pipx@darwin"
+  },
+  {
+   "tool": "pipx",
+   "scope": "user",
+   "path": "{local}/pipx/pipx",
+   "kind": "dir",
+   "holds": "PIPX_HOME: app venvs and shared libs (docs: %USERPROFILE%\\AppData\\Local\\pipx\\pipx)",
+   "source": "official",
+   "ref": "https://pipx.pypa.io/stable/how-to/configure-paths.html",
+   "env": "PIPX_HOME",
+   "os": [
+    "win32"
+   ],
+   "category": "state",
+   "code": "pipx:local_pipx_pipx@win32"
+  },
+  {
+   "tool": "pipx",
+   "scope": "user",
+   "path": "{home}/.local/bin",
+   "kind": "dir",
+   "holds": "App links (pipx-run MCP servers' executables)",
+   "source": "official",
+   "ref": "https://pipx.pypa.io/stable/how-to/configure-paths.html",
+   "env": "PIPX_BIN_DIR",
+   "category": "mcp",
+   "code": "pipx:home_local_bin"
+  },
+  {
+   "tool": "pipx",
+   "scope": "system",
+   "path": "/opt/pipx",
+   "kind": "dir",
+   "holds": "Global (--global) installs; not supported on Windows",
+   "source": "official",
+   "ref": "https://pipx.pypa.io/stable/how-to/configure-paths.html",
+   "env": "PIPX_GLOBAL_HOME",
+   "os": [
+    "linux"
+   ],
+   "category": "install",
+   "code": "pipx:opt_pipx@linux"
+  }
+ ]
+}

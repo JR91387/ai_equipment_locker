@@ -1,0 +1,27 @@
+[project]
+name = "equipment-locker"
+version = "1.0.0"
+description = "A visual dashboard of your AI tooling: Claude, Gemini, Antigravity and ChatGPT files, plugins and key folders."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.11"
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/JR91387/ai_equipment_locker"
+Wiki = "https://github.com/JR91387/ai_equipment_locker/wiki"
+Issues = "https://github.com/JR91387/ai_equipment_locker/issues"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+equipment_locker = ["schema/*.sql", "web/*", "places.json"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py311"

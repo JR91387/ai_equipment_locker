@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="56" viewBox="0 0 600 56" font-family="Arial Narrow, Arial, sans-serif" font-size="12" font-weight="700">
+  <rect x="0" y="0" width="100" height="56" fill="#3B4F2F"/><text x="50" y="33" fill="#FAF6E8" text-anchor="middle">FIELD OLIVE</text>
+  <rect x="100" y="0" width="100" height="56" fill="#FAF6E8" stroke="#D8C29A"/><text x="150" y="33" fill="#1E221B" text-anchor="middle">WARM CREAM</text>
+  <rect x="200" y="0" width="100" height="56" fill="#D8C29A"/><text x="250" y="33" fill="#1E221B" text-anchor="middle">KHAKI SAND</text>
+  <rect x="300" y="0" width="100" height="56" fill="#6BA7C6"/><text x="350" y="33" fill="#1E221B" text-anchor="middle">MUTED SKY</text>
+  <rect x="400" y="0" width="100" height="56" fill="#B4422C"/><text x="450" y="33" fill="#FAF6E8" text-anchor="middle">SIGNAL RED</text>
+  <rect x="500" y="0" width="100" height="56" fill="#1E221B"/><text x="550" y="33" fill="#FAF6E8" text-anchor="middle">DEEP CHARCOAL</text>
+</svg>

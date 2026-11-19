@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="220" viewBox="0 0 900 220" role="img" aria-label="Equipment Locker: Store it. Find it.">
+  <rect width="900" height="220" rx="10" fill="#FAF6E8"/>
+  <rect x="0.5" y="0.5" width="899" height="219" rx="10" fill="none" stroke="#D8C29A"/>
+  <g transform="translate(36 14) scale(0.41)">
+  
+  <ellipse cx="300" cy="438" rx="250" ry="18" fill="#1E221B" opacity="0.12"/>
+  <!-- lid, hinged at the back edge, standing open -->
+  <polygon points="112,182 488,182 468,38 132,38" fill="#2F3F25" stroke="#1E221B" stroke-width="3" stroke-linejoin="round"/>
+  <polygon points="140,170 460,170 444,56 156,56" fill="#3B4F2F"/>
+  <rect x="236" y="76" width="128" height="78" rx="3" fill="#FAF6E8" stroke="#1E221B" stroke-width="2" transform="rotate(-2 300 115)"/>
+  <g stroke="#7E8F5E" stroke-width="2" stroke-linecap="round" transform="rotate(-2 300 115)">
+    <path d="M250 96h74M250 110h88M250 124h60M250 138h80"/>
+  </g>
+  <g fill="#3B4F2F" transform="rotate(-2 300 115)"><circle cx="342" cy="96" r="3"/><circle cx="352" cy="124" r="3"/></g>
+  <!-- interior -->
+  <polygon points="80,214 520,214 488,182 112,182" fill="#1E221B"/>
+  <!-- gear rising out of the locker -->
+  <rect x="128" y="150" width="120" height="58" rx="29" fill="#D8C29A" stroke="#1E221B" stroke-width="3"/>
+  <path d="M158 152v54M188 151v56M218 152v54" stroke="#B9A47A" stroke-width="3"/>
+  <rect x="262" y="132" width="40" height="80" rx="6" fill="#6BA7C6" stroke="#1E221B" stroke-width="3"/>
+  <path d="M292 132V82" stroke="#1E221B" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="292" cy="80" r="4" fill="#1E221B"/>
+  <rect x="270" y="148" width="24" height="12" rx="2" fill="#FAF6E8"/>
+  <circle cx="350" cy="178" r="34" fill="#7E8F5E" stroke="#1E221B" stroke-width="3"/>
+  <rect x="340" y="134" width="20" height="14" rx="3" fill="#1E221B"/>
+  <path d="M332 178h36" stroke="#3B4F2F" stroke-width="3"/>
+  <rect x="396" y="158" width="74" height="50" rx="4" fill="#FAF6E8" stroke="#1E221B" stroke-width="3" transform="rotate(8 433 183)"/>
+  <path d="M408 172h48M408 186h36" stroke="#B4422C" stroke-width="3" stroke-linecap="round" transform="rotate(8 433 183)"/>
+  <!-- body -->
+  <rect x="80" y="212" width="440" height="212" rx="8" fill="#3B4F2F" stroke="#1E221B" stroke-width="3"/>
+  <rect x="80" y="212" width="440" height="20" fill="#2F3F25" stroke="#1E221B" stroke-width="3"/>
+  <rect x="80" y="402" width="440" height="22" rx="4" fill="#2F3F25" stroke="#1E221B" stroke-width="3"/>
+  <g fill="#D8C29A" stroke="#1E221B" stroke-width="2.5" stroke-linejoin="round">
+    <path d="M80 232h34v14H94v30H80z"/><path d="M520 232h-34v14h20v30h14z"/>
+    <path d="M80 402h34v-14H94v-30H80z"/><path d="M520 402h-34v-14h20v-30h14z"/>
+    <rect x="284" y="222" width="32" height="34" rx="4"/>
+  </g>
+  <circle cx="300" cy="244" r="4" fill="#1E221B"/>
+  <g fill="#D8C29A" stroke="#1E221B" stroke-width="2.5"><rect x="58" y="294" width="22" height="44" rx="5"/><rect x="520" y="294" width="22" height="44" rx="5"/></g>
+  <!-- stencil -->
+  <polygon points="300,268 309,294 336,294 314,310 322,336 300,320 278,336 286,310 264,294 291,294" fill="#FAF6E8" opacity="0.92"/>
+  <text x="300" y="378" text-anchor="middle" fill="#FAF6E8" opacity="0.92" font-family="'Barlow Condensed', 'Arial Narrow', Arial, sans-serif" font-weight="700" font-size="34" letter-spacing="3" textLength="330" lengthAdjust="spacingAndGlyphs">EQUIPMENT LOCKER</text>
+</g>
+  <text x="300" y="112" fill="#3B4F2F" font-family="'Barlow Condensed', 'Arial Narrow', Arial, sans-serif" font-weight="700" font-size="76" textLength="540" lengthAdjust="spacingAndGlyphs">EQUIPMENT LOCKER</text>
+  <text x="302" y="160" fill="#1E221B" font-family="'Barlow Condensed', 'Arial Narrow', Arial, sans-serif" font-weight="700" font-size="34">Store it. Find it.</text>
+</svg>
