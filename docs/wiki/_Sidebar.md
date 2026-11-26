@@ -5,4 +5,6 @@
 - [Use with an LLM](Use-with-an-LLM.md)
 - [Privacy and safety](Privacy-and-Safety.md)
 - [Platforms](Platforms.md)
+- [Run on a schedule](Run-On-A-Schedule.md)
+- [View from another machine](View-From-Another-Machine.md)
 - [FAQ](FAQ.md)

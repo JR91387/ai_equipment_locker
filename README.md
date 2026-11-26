@@ -18,11 +18,16 @@ Python 3.11 or newer; nothing else to install.
 
 ```bash
 git clone https://github.com/JR91387/ai_equipment_locker && cd ai_equipment_locker
-PYTHONPATH=src python3 -m equipment_locker serve      # opens on http://127.0.0.1:8765
+pipx install .                 # adds the equipment-locker command (or skip it: PYTHONPATH=src python3 -m equipment_locker)
+equipment-locker serve         # opens on http://127.0.0.1:8765
 ```
 
 `serve` takes stock when it starts, again every 6 hours while it runs, and whenever you press **Refresh**.
-Prefer the terminal? `python3 -m equipment_locker scan` fills the same catalogue and prints a summary.
+Prefer the terminal? `equipment-locker scan` fills the same catalogue and prints a summary.
+
+The catalogue is one SQLite file: `~/.local/share/equipment-locker/locker.db` on Linux,
+`~/Library/Application Support/equipment-locker/locker.db` on macOS, `%LOCALAPPDATA%\equipment-locker\locker.db`
+on Windows. `--help` and every scan summary show the exact path.
 
 <p align="center"><img src="docs/assets/screenshot-tool.png" alt="One tool's shelf" width="820"></p>
 
@@ -41,6 +46,8 @@ your catalogue ("do I have a skill for code review?", "which MCP servers does Cu
 
 ```bash
 # Claude Code
+claude mcp add equipment-locker -- equipment-locker mcp
+# without pipx:
 claude mcp add equipment-locker -e PYTHONPATH=/path/to/equipment-locker/src -- python3 -m equipment_locker mcp
 ```
 
@@ -71,7 +78,9 @@ Add `--read-only` to hide the three labelling tools. The server only serves the 
 ## Learn more
 [Getting started](docs/wiki/Getting-Started.md) · [What it catalogs](docs/wiki/What-It-Catalogs.md) ·
 [Use with an LLM](docs/wiki/Use-with-an-LLM.md) ·
-[Privacy and safety](docs/wiki/Privacy-and-Safety.md) · [Platforms](docs/wiki/Platforms.md) · [FAQ](docs/wiki/FAQ.md)
+[Privacy and safety](docs/wiki/Privacy-and-Safety.md) · [Platforms](docs/wiki/Platforms.md) ·
+[Run on a schedule](docs/wiki/Run-On-A-Schedule.md) · [View from another machine](docs/wiki/View-From-Another-Machine.md) ·
+[FAQ](docs/wiki/FAQ.md)
 
 <p align="center"><img src="docs/assets/palette.svg" alt="Palette: field olive, warm cream, khaki sand, muted sky, signal red, deep charcoal" width="600"></p>
 

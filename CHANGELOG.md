@@ -1,5 +1,18 @@
 # Changelog
 
+## Unreleased
+- Scans list up to 1,000,000 folder entries by default (was 50,000), so big machines finish in one run.
+- A `partial` scan says which limit ran out and suggests `--max-entries`; sizes it skipped show as
+  "not measured" instead of 0 bytes.
+- `serve` takes `--max-entries` too, and `--allow-host NAME` to accept a proxy's or tunnel's host name. A refused
+  request now explains why and how to fix it.
+- `pipx install .` adds an `equipment-locker` command; the installed package now includes the page's fonts,
+  icons and gradients.
+- `--help`, the scan summary and `serve` show where the catalogue file is.
+- The terminal summary uses the page's words: places and third-party.
+- New wiki pages: Run on a schedule (systemd, launchd, Task Scheduler examples in `docs/examples/`) and
+  View from another machine.
+
 ## 1.0.1 (2026-11-19)
 - The shelves now say **Your tools** (was "Your AI gear").
 - Known tools show their own icon in brand colours (Claude, Gemini, Cursor, GitHub Copilot, Windsurf, Cline,
