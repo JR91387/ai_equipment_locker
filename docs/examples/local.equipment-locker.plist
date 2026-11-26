@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- macOS launchd agent: keeps the cabinet page open on http://127.0.0.1:8765 (it scans on start and every 6 h).
+     Replace /Users/alice with your home folder, copy to ~/Library/LaunchAgents/, then:
+     launchctl load ~/Library/LaunchAgents/local.equipment-locker.plist -->
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key><string>local.equipment-locker</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/Users/alice/.local/bin/equipment-locker</string>
+    <string>serve</string>
+  </array>
+  <key>RunAtLoad</key><true/>
+  <key>KeepAlive</key><true/>
+</dict>
+</plist>

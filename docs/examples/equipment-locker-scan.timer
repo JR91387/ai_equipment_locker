@@ -1,0 +1,11 @@
+# Linux, systemd user timer: a scan 10 minutes after login, then every 6 hours.
+# Enable: systemctl --user enable --now equipment-locker-scan.timer
+[Unit]
+Description=Equipment Locker scan every 6 hours
+
+[Timer]
+OnStartupSec=10min
+OnUnitActiveSec=6h
+
+[Install]
+WantedBy=timers.target

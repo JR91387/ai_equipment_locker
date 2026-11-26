@@ -1,0 +1,7 @@
+# Linux, systemd user service run by equipment-locker-scan.timer. Copy both to ~/.config/systemd/user/.
+[Unit]
+Description=Equipment Locker scan
+
+[Service]
+Type=oneshot
+ExecStart=%h/.local/bin/equipment-locker scan

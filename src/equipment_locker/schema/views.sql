@@ -24,6 +24,7 @@ SELECT tool,
        SUM(presence = 'absent') AS gone,
        SUM(origin = 'vendored') AS vendored,
        COALESCE(SUM(CASE WHEN presence = 'present' THEN size_bytes END), 0) AS bytes,
+       SUM(presence = 'present' AND kind = 'dir' AND category <> 'auth' AND size_bytes IS NULL) AS unsized,
        MAX(size_over) AS any_size_over
 FROM v_location_current
 GROUP BY tool

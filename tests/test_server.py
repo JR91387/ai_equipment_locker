@@ -23,7 +23,7 @@ class TestServer(unittest.TestCase):
         (home / ".claude" / "skills" / "one" / "SKILL.md").write_text("---\nname: one\ndescription: First\n---\n")
         opts = {"platform": "linux", "machine": "t", "env": {}, "current_home": home, "users": "me",
                 "projects": False, "sweep": False, "limits": {"depth": 4, "max_entries": 50000, "size_max_files": 100}}
-        cls.httpd = server.make_server(root / "cab.db", opts, port=0)
+        cls.httpd = server.make_server(root / "cab.db", opts, port=0, allow=("Viewer.example",))
         cls.httpd.scanner._run()
         cls.port = cls.httpd.server_address[1]
         threading.Thread(target=cls.httpd.serve_forever, daemon=True).start()
@@ -70,8 +70,15 @@ class TestServer(unittest.TestCase):
         status, img = self.call("GET", f"/api/image/{json.loads(raw)['image_id']}")
         self.assertEqual((status, img[:4]), (200, b"\x89PNG"))
 
+    def test_allow_host(self):
+        self.assertEqual(self.call("GET", "/api/summary", headers={"Host": "viewer.example:8444"})[0], 200)
+        hdr = {"Host": "viewer.example", "X-Locker": "1", "Origin": "https://viewer.example:8444"}
+        self.assertEqual(self.call("POST", "/api/annotation", {}, hdr)[0], 400)  # past the guard, bad body
+
     def test_guards(self):
-        self.assertEqual(self.call("GET", "/api/summary", headers={"Host": "evil.example"})[0], 403)
+        status, body = self.call("GET", "/api/summary", headers={"Host": "evil.example"})
+        self.assertEqual(status, 403)
+        self.assertIn(b"--allow-host evil.example", body)
         self.assertEqual(self.call("POST", "/api/annotation", {})[0], 403)
         hdr = {"X-Locker": "1", "Origin": "http://evil.example"}
         self.assertEqual(self.call("POST", "/api/annotation", {}, hdr)[0], 403)

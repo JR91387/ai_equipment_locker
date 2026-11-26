@@ -1,0 +1,12 @@
+# Linux, systemd user service: keeps the cabinet page open on http://127.0.0.1:8765.
+# Install: copy to ~/.config/systemd/user/, then: systemctl --user enable --now equipment-locker-web
+# Scans are left to equipment-locker-scan.timer (--no-scan); Refresh on the page still scans.
+[Unit]
+Description=Equipment Locker cabinet page
+
+[Service]
+ExecStart=%h/.local/bin/equipment-locker serve --no-scan --port 8765
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
