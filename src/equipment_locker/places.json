@@ -212,7 +212,7 @@
  },
  "limits": {
   "depth": 4,
-  "max_entries": 50000,
+  "max_entries": 1000000,
   "size_max_files": 10000
  },
  "sources": {

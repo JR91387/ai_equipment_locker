@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: MIT
-"""Local display server: static page + JSON API on 127.0.0.1, background scans on start and every 6 hours."""
+"""Local display server: static page + JSON API on 127.0.0.1, background scans on start and every 6 hours.
+
+Refresh on the page scans even under --no-scan, with the same entry limit."""
 import binascii
 import json
 import mimetypes
@@ -69,16 +71,25 @@ class Handler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(data)
 
+    def _host(self):
+        return (self.headers.get("Host") or "").rsplit(":", 1)[0].lower()
+
     def _local(self):
-        host = (self.headers.get("Host") or "").rsplit(":", 1)[0]
-        return host in LOCAL
+        return self._host() in LOCAL | self.server.allow_hosts
+
+    def _refuse(self, what):
+        host = self._host() or "(none)"
+        return self._send(403, {"error": f"{what}: this server answers only on 127.0.0.1 and localhost, and this "
+                                         f"request asked for '{host}'. To view it from another machine, use an SSH "
+                                         f"tunnel, or restart with: serve --allow-host {host} "
+                                         "(see docs/wiki/View-From-Another-Machine.md)"})
 
     def _conn(self):
         return db.connect(self.server.db_path)
 
     def do_GET(self):
         if not self._local():
-            return self._send(403, {"error": "local only"})
+            return self._refuse("local only")
         url = urlparse(self.path)
         if not url.path.startswith("/api/"):
             return self._static(url.path)
@@ -118,9 +129,9 @@ class Handler(BaseHTTPRequestHandler):
 
     def do_POST(self):
         origin = self.headers.get("Origin")
-        same = origin is None or urlparse(origin).hostname in {"127.0.0.1", "localhost", "::1"}
+        same = origin is None or urlparse(origin).hostname in {"127.0.0.1", "localhost", "::1"} | self.server.allow_hosts
         if not self._local() or self.headers.get("X-Locker") != "1" or not same:
-            return self._send(403, {"error": "local page only"})
+            return self._refuse("local page only")
         length = int(self.headers.get("Content-Length") or 0)
         if length > MAX_BODY:
             return self._send(413, {"error": "too large"})
@@ -141,20 +152,23 @@ class Handler(BaseHTTPRequestHandler):
             conn.close()
 
 
-def make_server(db_path, opts, port=8765):
-    """Build (not start) the server; migrations run once here."""
+def make_server(db_path, opts, port=8765, allow=()):
+    """Build (not start) the server; migrations run once here. allow: extra Host names to accept (a proxy's)."""
     conn = db.open_db(db_path)
     places.sync(conn, places.load())
     search.rebuild(conn)
     conn.close()
     httpd = ThreadingHTTPServer(("127.0.0.1", port), Handler)
     httpd.db_path, httpd.scanner = str(db_path), Scanner(db_path, opts)
+    httpd.allow_hosts = {h.lower() for h in allow}
     return httpd
 
 
-def serve(db_path, opts, port=8765, scan_now=True):
-    httpd = make_server(db_path, opts, port)
-    if scan_now:
+def serve(db_path, opts, web):
+    """web: port, scan (scan on start and every 6 h), allow (extra Host names)."""
+    httpd = make_server(db_path, opts, web["port"], web["allow"])
+    print(f"catalog: {db_path}", flush=True)
+    if web["scan"]:
         httpd.scanner.start()
         httpd.scanner.every(RESCAN_SECONDS)
     print(f"Equipment Locker: http://127.0.0.1:{httpd.server_address[1]}/  (Ctrl+C to stop)", flush=True)

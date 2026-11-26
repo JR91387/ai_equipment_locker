@@ -1,5 +1,7 @@
 # SPDX-License-Identifier: MIT
 """End-to-end scans on fake machines: every user, each OS layout, history, idempotence, dry-run CLI."""
+import contextlib
+import io
 import os
 import shutil
 import tempfile
@@ -93,6 +95,12 @@ class TestLinuxScan(FakeMachine):
     def test_tiny_budget_is_partial_then_resumes(self):
         s = scan.run(self.conn, DOC, self.opts(limits={"depth": 4, "max_entries": 6, "size_max_files": 10}))
         self.assertEqual(s["status"], "partial")
+        self.assertEqual(s["budget"]["limit"], 6)
+        out = io.StringIO()
+        with contextlib.redirect_stdout(out):
+            cli.show({**s, "seconds": 0, "db": "x.db"}, False)
+        self.assertIn("partial: the entry limit (6) ran out while", out.getvalue())
+        self.assertIn("--max-entries 24", out.getvalue())
         s = scan.run(self.conn, DOC, self.opts())
         self.assertEqual(s["status"], "ok")
 

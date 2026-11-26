@@ -117,7 +117,8 @@ def run(conn, doc, opts):
     record.finish_run(conn, run_id, "partial" if hit else "ok", (used, hit))
     conn.execute("COMMIT")
     search.rebuild(conn)
-    return summary(conn, run_id, homes, gone)
+    budget = {"limit": limits["max_entries"], "walk_hit": walk_budget.spent, "size_hit": size_budget.spent}
+    return summary(conn, run_id, homes, gone) | {"budget": budget}
 
 
 def summary(conn, run_id, homes, gone):
